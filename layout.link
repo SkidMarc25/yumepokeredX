@@ -177,7 +177,7 @@ ROMX $2B
 ROMX $2C
 	"Move Names"
 ROMX $2D
-	"Pics 6"
+	"Trainer Pics"
 WRAM0
 	"Audio RAM"
 	org $c200
