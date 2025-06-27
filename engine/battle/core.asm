@@ -6836,7 +6836,7 @@ _LoadTrainerPic: ; marcelnote - modified to manage Red/Green battle
 	ld a, [wTrainerClass]
 	cp RED
 	jr nc, .loadRedPicBank
-	ld a, BANK("Pics 6") ; this is where all the trainer pics are (not counting Red's)
+	ld a, BANK("Trainer Pics")
 .loadSprite
 	call UncompressSpriteFromDE
 	ld de, vFrontPic
