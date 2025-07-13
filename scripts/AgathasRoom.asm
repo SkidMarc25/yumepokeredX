@@ -42,7 +42,7 @@ AgathasRoom_ScriptPointers:
 AgathaScriptWalkIntoRoom:
 ; Walk six steps upward.
 	ld hl, wSimulatedJoypadStatesEnd
-	ld a, D_UP
+	ld a, PAD_UP
 	ld [hli], a
 	ld [hli], a
 	ld [hli], a
@@ -75,7 +75,7 @@ AgathasRoomDefaultScript:
 	ld a, TEXT_AGATHASROOM_AGATHA_DONT_RUN_AWAY
 	ldh [hTextID], a
 	call DisplayTextID
-	ld a, D_UP
+	ld a, PAD_UP
 	ld [wSimulatedJoypadStatesEnd], a
 	ld a, $1
 	ld [wSimulatedJoypadStatesIndex], a

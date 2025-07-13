@@ -16,6 +16,15 @@ DEF MAP_BORDER EQU 3
 	shift_const SOUTH  ; 4
 	shift_const NORTH  ; 8
 
+; wWarpEntries
+DEF MAX_WARP_EVENTS EQU 32
+
+; wNumSigns
+DEF MAX_BG_EVENTS EQU 16
+
+; wMapSpriteData
+DEF MAX_OBJECT_EVENTS EQU 16
+
 ; flower and water tile animations ; marcelnote - redid this with bits
 	const_def
 	const BIT_ANIM_WATER      ; bit 0 = water tile $14 is animated

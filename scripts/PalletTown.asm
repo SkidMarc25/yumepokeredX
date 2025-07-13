@@ -40,7 +40,7 @@ ENDC
 	ld c, 0 ; BANK(Music_MeetProfOak)
 	ld a, MUSIC_MEET_PROF_OAK ; "oak appears" music
 	call PlayMusic
-	ld a, SELECT | START | D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, PAD_SELECT | PAD_START | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	SetEvent EVENT_OAK_APPEARED_IN_PALLET
 
@@ -57,7 +57,7 @@ PalletTownOakHeyWaitScript:
 	ld a, TEXT_PALLETTOWN_OAK
 	ldh [hTextID], a
 	call DisplayTextID
-	ld a, A_BUTTON | B_BUTTON | SELECT | START | D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, PAD_BUTTONS | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 
 	ld a, SCRIPT_PALLETTOWN_OAK_WALKS_TO_PLAYER
@@ -77,7 +77,7 @@ PalletTownOakWalksToPlayerScript:
 	ld a, PALLETTOWN_OAK
 	ldh [hSpriteIndex], a
 	call MoveSprite
-	ld a, A_BUTTON | B_BUTTON | SELECT | START | D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, PAD_BUTTONS | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 
 	ld a, SCRIPT_PALLETTOWN_OAK_NOT_SAFE_COME_WITH_ME
@@ -92,13 +92,13 @@ PalletTownOakNotSafeComeWithMeScript:
 	ld [wSpritePlayerStateData1FacingDirection], a
 	ld a, TRUE
 	ld [wOakWalkedToPlayer], a
-	ld a, SELECT | START | D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, PAD_SELECT | PAD_START | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld a, TEXT_PALLETTOWN_OAK
 	ldh [hTextID], a
 	call DisplayTextID
 ; set up movement script that causes the player to follow Oak to his lab
-	ld a, A_BUTTON | B_BUTTON | SELECT | START | D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, PAD_BUTTONS | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld a, PALLETTOWN_OAK
 	ld [wSpriteIndex], a

@@ -18,12 +18,11 @@ INCLUDE "translation/fra/charmap-fra.asm"
 ELSE
 INCLUDE "constants/charmap.asm"
 ENDC
-INCLUDE "constants/hardware_constants.asm"
+INCLUDE "constants/hardware.asm"
 INCLUDE "constants/oam_constants.asm"
 INCLUDE "constants/ram_constants.asm"
 INCLUDE "constants/misc_constants.asm"
 INCLUDE "constants/gfx_constants.asm"
-INCLUDE "constants/input_constants.asm"
 INCLUDE "constants/serial_constants.asm"
 INCLUDE "constants/script_constants.asm"
 INCLUDE "constants/type_constants.asm"

@@ -374,7 +374,7 @@ StatusScreenExit:
 	res BIT_NO_AUDIO_FADE_OUT, [hl]
 	res BIT_PLAYED_CRY, [hl]
 	ld a, $77
-	ldh [rNR50], a
+	ldh [rAUDVOL], a
 	call GBPalWhiteOut
 	jp ClearScreen
 
