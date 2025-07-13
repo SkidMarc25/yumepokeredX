@@ -5,7 +5,7 @@ CheckForHiddenObjectOrBookshelfOrCardKeyDoor::
 	ldh a, [hLoadedROMBank]
 	push af
 	;ldh a, [hJoyHeld] ; marcelnote - button is already checked before calling the function
-	;bit BIT_A_BUTTON, a
+	;bit B_PAD_A, a
 	;jr z, .nothingFound
 ; A button is pressed
 	ld a, BANK(CheckForHiddenObject)

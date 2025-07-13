@@ -28,7 +28,7 @@ MandarinDockAllAboardScript:
 	ld a, HS_VERMILION_DOCK_SAILOR
 	ld [wMissableObjectIndex], a
 	predef HideObjectCont
-	ld a, D_DOWN
+	ld a, PAD_DOWN
 	ld [wSimulatedJoypadStatesEnd], a
 	ld [wSimulatedJoypadStatesEnd+1], a
 	ld a, 2

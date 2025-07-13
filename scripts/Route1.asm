@@ -55,7 +55,7 @@ Route1OakFalseStartScript: ; marcelnote - postgame Oak battle
 	xor a ; EXCLAMATION_BUBBLE
 	ld [wWhichEmotionBubble], a
 	predef EmotionBubble
-	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld a, ROUTE1_OAK
 	ldh [hSpriteIndex], a

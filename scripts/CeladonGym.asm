@@ -76,7 +76,7 @@ CeladonGymErikaRematchPostBattleScript: ; marcelnote - Erika rematch
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, CeladonGymResetScripts
-	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld a, TEXT_CELADONGYM_AFTER_REMATCH
 	ldh [hTextID], a

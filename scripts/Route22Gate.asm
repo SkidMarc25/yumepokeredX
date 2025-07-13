@@ -60,7 +60,7 @@ Route22GateScriptCoords:
 	dbmapcoord  3,  4 ; marcelnote - new guard
 	db -1 ; end
 
-Route22GateMovePlayerScript: ; marcelnote - now takes a = D_DOWN, D_RIGHT... as argument
+Route22GateMovePlayerScript: ; marcelnote - now takes a = PAD_DOWN, PAD_RIGHT... as argument
 	ld [wSimulatedJoypadStatesEnd], a
 	ld [wSpritePlayerStateData1FacingDirection], a
 	ld [wJoyIgnore], a
@@ -96,7 +96,7 @@ Route22GateGuardText: ; marcelnote - adapted for additions to Route22Gate
 	jr nz, .has_boulderbadge
 	ld hl, Route22GateGuardNoBoulderbadgeText
 	call PrintText
-	ld a, D_DOWN ; marcelnote - now the MovePlayerScript takes a = D_DOWN as argument
+	ld a, PAD_DOWN ; marcelnote - now the MovePlayerScript takes a = PAD_DOWN as argument
 	call Route22GateMovePlayerScript
 	ld a, SCRIPT_ROUTE22GATE_PLAYER_MOVING
 	ld [wRoute22GateCurScript], a
@@ -136,7 +136,7 @@ ENDC
 	jr nz, .beat_oak
 	ld hl, Route22GateGuard2ScaryStrongText
 	call PrintText
-	ld a, D_RIGHT
+	ld a, PAD_RIGHT
 	call Route22GateMovePlayerScript
 	ld a, SCRIPT_ROUTE22GATE_PLAYER_MOVING
 	ld [wRoute22GateCurScript], a
@@ -231,13 +231,13 @@ ENDC
 .skipRules
 	ld hl, Route22GateReceptionistOpponentWaitingForYouText
 	call PrintText
-	ld a, D_RIGHT
+	ld a, PAD_RIGHT
 	jr .movePlayer
 .saidNo
 	ld hl, .ComeBackAnytimeText
 	call PrintText
 .loadLeftMovement
-	ld a, D_LEFT
+	ld a, PAD_LEFT
 .movePlayer
 	call Route22GateMovePlayerScript
 	ld a, SCRIPT_ROUTE22GATE_PLAYER_MOVING

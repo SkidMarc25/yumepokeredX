@@ -15,7 +15,7 @@ MandarinSurfShopClerkText:
 	xor a
 	ld [wCurrentMenuItem], a
 	ld [wLastMenuItem], a
-	ld a, A_BUTTON | B_BUTTON
+	ld a, PAD_A | PAD_B
 	ld [wMenuWatchedKeys], a
 	ld a, $1
 	ld [wMaxMenuItem], a
@@ -41,7 +41,7 @@ MandarinSurfShopClerkText:
 	ld hl, wStatusFlags5 ; marcelnote - moved code from below
 	res BIT_NO_TEXT_DELAY, [hl]
 	call HandleMenuInput
-	bit BIT_B_BUTTON, a
+	bit B_PAD_B, a
 	jr nz, .cancel
 	;ld hl, wStatusFlags5 ; marcelnote - moved above to fix instant text bug
 	;res BIT_NO_TEXT_DELAY, [hl]

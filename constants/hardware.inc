@@ -419,6 +419,23 @@ def B_AUDENA_ENABLE_CH1 equ 0 ; 1 = channel 1 is running [ro]
     def AUDENA_CH1_ON  equ 1 << B_AUDENA_ENABLE_CH1
 
 ; -- $FF27-$FF2F are unused ---------------------------------------------------
+; marcelnote - for crysaudio
+DEF rWave_0           EQU $ff30
+DEF rWave_1           EQU $ff31
+DEF rWave_2           EQU $ff32
+DEF rWave_3           EQU $ff33
+DEF rWave_4           EQU $ff34
+DEF rWave_5           EQU $ff35
+DEF rWave_6           EQU $ff36
+DEF rWave_7           EQU $ff37
+DEF rWave_8           EQU $ff38
+DEF rWave_9           EQU $ff39
+DEF rWave_a           EQU $ff3a
+DEF rWave_b           EQU $ff3b
+DEF rWave_c           EQU $ff3c
+DEF rWave_d           EQU $ff3d
+DEF rWave_e           EQU $ff3e
+DEF rWave_f           EQU $ff3f
 
 ; -- AUD3WAVE ($FF30-$FF3F) ---------------------------------------------------
 ; Audio channel 3 wave pattern RAM [r/w]

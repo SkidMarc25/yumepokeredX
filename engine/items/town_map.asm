@@ -142,7 +142,7 @@ LoadTownMap_Nest: ; marcelnote - completely modified for fishing guide
 	ld [hl], a
 	call WaitForTextScrollButtonPress
 	ldh a, [hJoy5]
-	and A_BUTTON
+	and PAD_A
 	jr z, .exit
 	ld a, SFX_TINK
 	call PlaySound
@@ -174,7 +174,7 @@ LoadTownMap_Nest: ; marcelnote - completely modified for fishing guide
 	ld [hl], a
 	call WaitForTextScrollButtonPress
 	ldh a, [hJoy5]
-	and A_BUTTON
+	and PAD_A
 	jr z, .exit
 	ld a, SFX_TINK
 	call PlaySound
@@ -203,7 +203,7 @@ LoadTownMap_Nest: ; marcelnote - completely modified for fishing guide
 	ld [hl], a
 	call WaitForTextScrollButtonPress
 	ldh a, [hJoy5]
-	and A_BUTTON
+	and PAD_A
 	jr z, .exit
 	ld a, SFX_TINK
 	call PlaySound
@@ -228,7 +228,7 @@ LoadTownMap_Nest: ; marcelnote - completely modified for fishing guide
 	ld [hl], a
 	call WaitForTextScrollButtonPress
 	ldh a, [hJoy5]
-	and A_BUTTON
+	and PAD_A
 	jp z, .exit
 	ld a, SFX_TINK
 	call PlaySound

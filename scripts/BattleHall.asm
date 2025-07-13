@@ -14,7 +14,7 @@ BattleHall_ScriptPointers:
 	dw_const BattleHallPostBattleScript,     SCRIPT_BATTLEHALL_POST_BATTLE
 
 BattleHallMovePlayerScript:
-	ld a, A_BUTTON | B_BUTTON | SELECT | START | D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, PAD_BUTTONS | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld hl, wSimulatedJoypadStatesEnd
 	ld a, [wSpritePlayerStateData1FacingDirection]
@@ -39,23 +39,23 @@ BattleHallMovePlayerScript:
 	ret
 
 .SpriteOnRightMovement:
-	db D_RIGHT, 2
+	db PAD_RIGHT, 2
 	db -1 ; end
 
 .SpriteOnLeftMovement:
-	db D_DOWN, 1
-	db D_RIGHT, 4
-	db D_UP, 1
+	db PAD_DOWN, 1
+	db PAD_RIGHT, 4
+	db PAD_UP, 1
 	db -1 ; end
 
 .SpriteOnTopMovement:
-	db D_DOWN, 1
-	db D_RIGHT, 3
+	db PAD_DOWN, 1
+	db PAD_RIGHT, 3
 	db -1 ; end
 
 .SpriteOnBottomMovement:
-	db D_UP, 1
-	db D_RIGHT, 3
+	db PAD_UP, 1
+	db PAD_RIGHT, 3
 	db -1 ; end
 
 BattleHallEndMovementScript:

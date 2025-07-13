@@ -41,7 +41,7 @@ MandarinIslandDefaultScript:
 	ld b, CITRUS_PASS
 	call IsItemInBag
 	ret nz
-	ld a, D_UP
+	ld a, PAD_UP
 	ld [wSimulatedJoypadStatesEnd], a
 	ld a, $1
 	ld [wSimulatedJoypadStatesIndex], a

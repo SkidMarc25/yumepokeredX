@@ -51,7 +51,7 @@ DisplayListMenuID::
 	ld [wTopMenuItemY], a
 	ld a, 5
 	ld [wTopMenuItemX], a
-	ld a, PAD_A | PAD_B | PAD_SELECT | D_RIGHT ; marcelnote - added D_RIGHT for bag pockets
+	ld a, PAD_A | PAD_B | PAD_SELECT | PAD_RIGHT ; marcelnote - added PAD_RIGHT for bag pockets
 	ld [wMenuWatchedKeys], a
 	ld c, 10
 	call DelayFrames

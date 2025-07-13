@@ -2123,11 +2123,11 @@ DisplayBattleMenu:: ; marcelnote - added B button as shortcut to Run
 	ld hl, wMaxMenuItem
 	ld a, $1
 	ld [hli], a ; wMaxMenuItem
-	ld [hl], D_RIGHT | A_BUTTON | B_BUTTON ; wMenuWatchedKeys
+	ld [hl], PAD_RIGHT | PAD_A | PAD_B ; wMenuWatchedKeys
 	call HandleMenuInput
-	bit BIT_A_BUTTON, a
+	bit B_PAD_A, a
 	jr nz, .AButtonPressed
-	bit BIT_B_BUTTON, a
+	bit B_PAD_B, a
 	jr nz, .BButtonPressed
 	; D right pressed
 .rightColumn ; put cursor in right column of menu
@@ -2155,12 +2155,12 @@ DisplayBattleMenu:: ; marcelnote - added B button as shortcut to Run
 	ld hl, wMaxMenuItem
 	ld a, $1
 	ld [hli], a ; wMaxMenuItem
-	ld a, D_LEFT | A_BUTTON | B_BUTTON
+	ld a, PAD_LEFT | PAD_A | PAD_B
 	ld [hli], a ; wMenuWatchedKeys
 	call HandleMenuInput
-	bit BIT_D_LEFT, a
+	bit B_PAD_LEFT, a
 	jr nz, .leftColumn
-	bit BIT_B_BUTTON, a
+	bit B_PAD_B, a
 	jr nz, .BButtonPressed
 	; A button pressed
 	ld hl, wCurrentMenuItem
@@ -2688,7 +2688,7 @@ SelectMenuItem:
 	call HandleMenuInput
 	ld hl, hUILayoutFlags
 	res BIT_SINGLE_SPACED_MENU, [hl]
-	bit BIT_D_UP, a
+	bit B_PAD_UP, a
 	jp nz, SelectMenuItem_CursorUp
 	bit B_PAD_DOWN, a
 	jp nz, SelectMenuItem_CursorDown

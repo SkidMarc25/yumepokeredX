@@ -63,7 +63,7 @@ BikeShopClerkText: ; marcelnote - optimized
 	res BIT_NO_TEXT_DELAY, [hl]
 	call HandleMenuInput
 	ld hl, BikeShopComeAgainText
-	bit BIT_B_BUTTON, a
+	bit B_PAD_B, a
 	jr nz, .print_text
 	;ld hl, wStatusFlags5 ; marcelnote - moved above to fix instant text bug
 	;res BIT_NO_TEXT_DELAY, [hl]

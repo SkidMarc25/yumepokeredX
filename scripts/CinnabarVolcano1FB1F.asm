@@ -100,7 +100,7 @@ CinnabarVolcano1FLanceGoesInScript: ; marcelnote - adapted from PokemonTower2F r
 	xor a
 	ldh [hJoyHeld], a
 	ldh [hJoyPressed], a
-	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld de, .LanceGoesInMovementFacingDown
 	ld a, [wPlayerMovingDirection]
@@ -156,24 +156,24 @@ CinnabarVolcanoB1FLanceTogetherScript:
 	ret
 
 CinnabarVolcanoB1FPlayerMovesToCharizardScript:
-	ld a, A_BUTTON | B_BUTTON | SELECT | START | D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, PAD_BUTTONS | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld a, $3
 	ld [wSimulatedJoypadStatesIndex], a
 	ld hl, wSimulatedJoypadStatesEnd
-	ld a, D_UP
+	ld a, PAD_UP
 	ld [hli], a
-	ld a, D_LEFT
+	ld a, PAD_LEFT
 	ld [hli], a
 	ld a, [wXCoord]
 	cp 20 ; Xcoord of left event tile
 	jr z, .left_tile
-	ld a, D_LEFT ; if on right tile, do one more step to the left
+	ld a, PAD_LEFT ; if on right tile, do one more step to the left
 	ld [hli], a
 	ld a, $4     ; and increase the total number of steps
 	ld [wSimulatedJoypadStatesIndex], a
 .left_tile
-	ld a, D_UP
+	ld a, PAD_UP
 	ld [hl], a
 	call StartSimulatingJoypadStates
 	ld a, SCRIPT_CINNABARVOLCANOB1F_CHARIZARD_BATTLE_STARTS

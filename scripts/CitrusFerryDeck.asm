@@ -17,7 +17,7 @@ CitrusFerryDeckDefaultScript:
 	ld a, [wYCoord]
 	and a
 	jr nz, .checkSailor
-	ld a, D_DOWN
+	ld a, PAD_DOWN
 	ld [wSimulatedJoypadStatesEnd], a
 	ld [wSimulatedJoypadStatesEnd + 1], a
 	ld a, 2
@@ -38,7 +38,7 @@ CitrusFerryDeckDefaultScript:
 	ld a, TEXT_CITRUSFERRYDECK_SAILOR_SORRY
 	ldh [hTextID], a
 	call DisplayTextID
-	ld a, D_DOWN
+	ld a, PAD_DOWN
 	ld [wSimulatedJoypadStatesEnd], a
 	ld a, $1
 	ld [wSimulatedJoypadStatesIndex], a

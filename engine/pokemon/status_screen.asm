@@ -136,13 +136,13 @@ StatusScreenStatsPage:
 .waitButtonPress
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
-	bit BIT_B_BUTTON, a
+	bit B_PAD_B, a
 	jp nz, StatusScreenExit
-	bit BIT_START, a ; marcelnote - switch between Stats and DVs
+	bit B_PAD_START, a ; marcelnote - switch between Stats and DVs
 	jr nz, .switchStatsDVsStatExp
-	;bit BIT_D_DOWN, a ; marcelnote - for switching up and down
+	;bit B_PAD_DOWN, a ; marcelnote - for switching up and down
 	;jr nz, .checkIfLastMon
-	and A_BUTTON | D_RIGHT
+	and PAD_A | PAD_RIGHT
 	jr nz, StatusScreenMovesPage
 	jr .waitButtonPress
 
@@ -355,9 +355,9 @@ StatusScreenMovesPage:
 .waitButtonPress
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
-	bit BIT_D_LEFT, a
+	bit B_PAD_LEFT, a
 	jr nz, .clearScreenAndGoBackToStats
-	and A_BUTTON | B_BUTTON
+	and PAD_A | PAD_B
 	jr nz, StatusScreenExit
 	jr .waitButtonPress
 

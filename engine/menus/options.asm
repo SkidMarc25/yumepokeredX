@@ -28,7 +28,7 @@ DisplayOptionMenu: ; marcelnote - modified
 .optionMenuLoop
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
-	and START | B_BUTTON
+	and PAD_START | PAD_B
 	ret nz ; exit option menu
 	call OptionsControl
 	jr c, .dpadDelay
@@ -101,9 +101,9 @@ OptionMenuJumpTable:
 OptionsMenu_TextSpeed:
 	call GetTextSpeed ; c = 0 (fast), 1 (medium), 2 (slow),
 	ldh a, [hJoy5]    ; d = left speed, e = right speed
-	bit BIT_D_RIGHT, a
+	bit B_PAD_RIGHT, a
 	jr nz, .pressedRight
-	bit BIT_D_LEFT, a
+	bit B_PAD_LEFT, a
 	jr nz, .pressedLeft
 	jr .nonePressed
 .pressedRight ; pick right speed e and increase c
@@ -173,7 +173,7 @@ SlowText:
 
 OptionsMenu_BattleAnimations: ; bit set = animations off
 	ldh a, [hJoy5]
-	and D_RIGHT | D_LEFT
+	and PAD_RIGHT | PAD_LEFT
 	ld a, [wOptions]
 	jr z, .keep
 	xor 1 << BIT_BATTLE_ANIM_OFF
@@ -207,7 +207,7 @@ AnimationOffText:
 
 OptionsMenu_BattleStyle: ; bit set = metric
 	ldh a, [hJoy5]
-	and D_LEFT | D_RIGHT
+	and PAD_LEFT | PAD_RIGHT
 	ld a, [wOptions]
 	jr z, .keep
 	xor 1 << BIT_BATTLE_SET
@@ -242,7 +242,7 @@ BattleStyleSetText:
 
 OptionsMenu_MeasureUnits: ; bit set = metric
 	ldh a, [hJoy5]
-	and D_LEFT | D_RIGHT
+	and PAD_LEFT | PAD_RIGHT
 	ld a, [wOptions]
 	jr z, .keep
 	xor 1 << BIT_UNITS_METRIC
@@ -283,7 +283,7 @@ OptionsMenu_Dummy:
 
 OptionsMenu_Cancel:
 	ldh a, [hJoy5]
-	and A_BUTTON ; clears carry
+	and PAD_A ; clears carry
 	ret z
 	scf ; set carry flag to exit options menu
 	ret
@@ -292,9 +292,9 @@ OptionsMenu_Cancel:
 OptionsControl:
 	ld hl, wOptionsCursorLocation
 	ldh a, [hJoy5]
-	cp D_DOWN
+	cp PAD_DOWN
 	jr z, .pressedDown
-	cp D_UP
+	cp PAD_UP
 	jr z, .pressedUp
 	and a
 	ret

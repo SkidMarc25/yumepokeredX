@@ -13,7 +13,7 @@ VBlank::
 	and a
 	jr z, .no_delay_bank
 	ld [hLoadedROMBank], a
-	ld [MBC1RomBank], a
+	ld [rROMB], a
 .no_delay_bank
 
 	ldh a, [hSCX]
@@ -121,7 +121,7 @@ DEF NOT_VBLANKED EQU 1
 	ld [wDelayFrameBank], a
 
 	ldh a, [rLCDC]
-	bit rLCDC_ENABLE, a
+	bit B_LCDC_ENABLE, a
 	jp z, VBlank ;You will never enter the vblank interrupt if the LCD is disabled, so call it manually
 
 .halt

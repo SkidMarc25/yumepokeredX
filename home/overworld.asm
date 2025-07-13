@@ -302,7 +302,7 @@ OverworldLoopLessDelay::
 	dec a ; BIKING ?
 	jr z, .speedUp
 	ldh a, [hJoyHeld]
-	and B_BUTTON
+	and PAD_B
 	jr nz, .checkIfWalking
 	; marcelnote - running sprites
 	; if reached here then player is not running, so check if we need to update sprites
@@ -433,7 +433,7 @@ DoBikeSpeedup::
 	jp AdvancePlayerSprite
 .checkRoute17
 	ldh a, [hJoyHeld]
-	and D_UP | D_LEFT | D_RIGHT
+	and PAD_UP | PAD_LEFT | PAD_RIGHT
 	ret nz
 	jr .goFaster
 .checkMtSilver2F

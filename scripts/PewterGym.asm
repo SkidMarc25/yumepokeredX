@@ -85,7 +85,7 @@ PewterGymBrockRematchPostBattleScript: ; marcelnote - Brock rematch
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, PewterGymResetScripts
-	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld a, TEXT_PEWTERGYM_AFTER_REMATCH
 	ldh [hTextID], a

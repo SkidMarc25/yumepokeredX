@@ -278,7 +278,7 @@ WalkToHallOfFame_RLEMovement:
 	db -1 ; end
 
 ChampionsRoomPlayerFollowsRivalScript: ; marcelnote - added for Rival rematch
-	ld a, A_BUTTON | B_BUTTON | SELECT | START | D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, PAD_BUTTONS | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld hl, wSimulatedJoypadStatesEnd
 	ld de, WalkToHallOfFame_RLEMovement

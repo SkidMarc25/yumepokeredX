@@ -131,13 +131,13 @@ PokemonTower6FGhostBattleScript: ; marcelnote - postgame Agatha event
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, PokemonTower6FSetDefaultScript
-	ld a, A_BUTTON | B_BUTTON | SELECT | START | D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, PAD_BUTTONS | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld a, [wStatusFlags3]
 	bit BIT_TALKED_TO_TRAINER, a
 	ret nz
 	call UpdateSprites
-	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld a, [wBattleResult]
 	and a
@@ -155,7 +155,7 @@ PokemonTower6FGhostBattleScript: ; marcelnote - postgame Agatha event
 .did_not_defeat
 	ld a, $1
 	ld [wSimulatedJoypadStatesIndex], a
-	ld a, D_UP
+	ld a, PAD_UP
 	ld [wSimulatedJoypadStatesEnd], a
 	xor a
 	ld [wSpritePlayerStateData2MovementByte1], a
