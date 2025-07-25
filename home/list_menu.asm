@@ -183,7 +183,7 @@ DisplayListMenuIDLoop::
 	bit B_PAD_SELECT, a
 	jp nz, HandleItemListSwapping ; if so, allow the player to swap menu entries
 	;;;;;;;;;; marcelnote - for bag pockets
-	bit B_PAD_DOWN, a
+	bit B_PAD_RIGHT, a
 	jr nz, .switchBagPocket
 	;;;;;;;;;;
 	;ld b, a
