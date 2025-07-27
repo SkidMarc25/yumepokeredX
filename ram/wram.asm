@@ -720,6 +720,7 @@ wHoFTeamNo:: db
 NEXTU
 wRivalStarterTemp:: db
 wRivalStarterBallSpriteIndex:: db
+wDexWeight:: dw ; marcelnote - new, with rival starter variables to avoid interaction when choosing starter
 
 NEXTU
 wFlyAnimUsingCoordList:: db
@@ -832,9 +833,6 @@ wTrainerInfoTextBoxNextRowOffset:: db
 
 NEXTU
 wOptionsCursorLocation:: db ; marcelnote - new from pokeyellow
-
-NEXTU ; marcelnote - new
-wDexWeight:: dw
 
 NEXTU
 ; tile ID of the badge number being drawn
