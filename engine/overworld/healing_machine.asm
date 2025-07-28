@@ -1,6 +1,6 @@
 AnimateHealingMachine:
 	ld de, PokeCenterFlashingMonitorAndHealBall
-	ld hl, vChars0 tile $7c
+	ld hl, vChars0 tile $9e ; marcelnote - changed from $7c
 	lb bc, BANK(PokeCenterFlashingMonitorAndHealBall), 2 ; should be 2 ; marcelnote - fixed
 	call CopyVideoData
 	ld hl, wUpdateSpritesEnabled
@@ -70,16 +70,16 @@ AnimateHealingMachine:
 PokeCenterFlashingMonitorAndHealBall:
 	INCBIN "gfx/overworld/heal_machine.2bpp"
 
-PokeCenterOAMData:
+PokeCenterOAMData: ; marcelnote - changed from $7c and $7d
 	; heal machine monitor
-	dbsprite  6,  4,  4,  4, $7c, OAM_PAL1
+	dbsprite  6,  4,  4,  4, $9e, OAM_PAL1
 	; poke balls 1-6
-	dbsprite  6,  5,  0,  3, $7d, OAM_PAL1
-	dbsprite  7,  5,  0,  3, $7d, OAM_PAL1 | OAM_XFLIP
-	dbsprite  6,  6,  0,  0, $7d, OAM_PAL1
-	dbsprite  7,  6,  0,  0, $7d, OAM_PAL1 | OAM_XFLIP
-	dbsprite  6,  6,  0,  5, $7d, OAM_PAL1
-	dbsprite  7,  6,  0,  5, $7d, OAM_PAL1 | OAM_XFLIP
+	dbsprite  6,  5,  0,  3, $9f, OAM_PAL1
+	dbsprite  7,  5,  0,  3, $9f, OAM_PAL1 | OAM_XFLIP
+	dbsprite  6,  6,  0,  0, $9f, OAM_PAL1
+	dbsprite  7,  6,  0,  0, $9f, OAM_PAL1 | OAM_XFLIP
+	dbsprite  6,  6,  0,  5, $9f, OAM_PAL1
+	dbsprite  7,  6,  0,  5, $9f, OAM_PAL1 | OAM_XFLIP
 
 ; d = value to xor with palette
 FlashSprite8Times:
