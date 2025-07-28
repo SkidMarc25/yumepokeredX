@@ -113,7 +113,7 @@ _SSAnne1FRoomsGentleman3Text::
 _SSAnne1FRoomsNurseAreYouTiredText:: ; marcelnote - new nurse room
 	text "Are you tired?"
 	line "You can rest"
-	cont "here for a bit!"
+	cont "here for a bit."
 	prompt
 
 _SSAnne1FRoomsNurseEnjoyThePartyText:: ; marcelnote - new nurse room
