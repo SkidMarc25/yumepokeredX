@@ -82,5 +82,3 @@ INCLUDE "home/random.asm"
 INCLUDE "home/predef.asm"
 INCLUDE "home/hidden_objects.asm"
 INCLUDE "home/predef_text.asm"
-
-INCLUDE "home/debug_functions.asm" ; marcelnote - to detect stack overflow

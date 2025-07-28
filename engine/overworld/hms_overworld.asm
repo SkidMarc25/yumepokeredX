@@ -1,4 +1,6 @@
 CheckForSurf:: ; marcelnote - could be improved if there is a wram bit which checks if I am on the overworld/Pokemon menu
+	xor a
+	ldh [hOverworldHMUseFound], a
 	ld a, [wObtainedBadges]
 	bit BIT_SOULBADGE, a
 	ret z
@@ -20,6 +22,8 @@ CheckForSurf:: ; marcelnote - could be improved if there is a wram bit which che
 	call CheckForTilePairCollisions
 	ret z
 ; there is no blocking tile
+	ld a, 1
+	ldh [hOverworldHMUseFound], a
 	ld d, SURF
 	call IsMoveInParty ; output: z flag = whether the move was found (z = not found; nz = found)
 ; marcelnote - the code below can be uncommented to use the SURFBOARD
@@ -34,21 +38,21 @@ CheckForSurf:: ; marcelnote - could be improved if there is a wram bit which che
 	tx_pre WantToSurfText
 	ld a, [wCurrentMenuItem]
 	and a ; if answered NO
-	jp nz, OverworldLoop
+	ret nz
 	call LoadSurfingPlayerSpriteGraphics
 	callfar ItemUseSurfboard.makePlayerMoveForward
 	ld hl, wStatusFlags5
 	set BIT_SCRIPTED_MOVEMENT_STATE, [hl]
 	ld a, SURFING
 	ld [wWalkBikeSurfState], a
-	call PlayDefaultMusic ; play surfing music
-	jp OverworldLoop
+	jp PlayDefaultMusic ; play surfing music
 .noSurfInParty
 	call EnableAutoTextBoxDrawing
 	tx_pre_jump MonCouldSurfText
-	jp OverworldLoop
 
 CheckForCut::
+	xor a
+	ldh [hOverworldHMUseFound], a
 	predef GetTileAndCoordsInFrontOfPlayer ; load tile in front
 	ld a, [wObtainedBadges]
 	bit BIT_CASCADEBADGE, a
@@ -69,6 +73,8 @@ CheckForCut::
 	ret nz  ; we don't check for grass, differently from vanilla
 .cuttableTile
 	ld [wCutTile], a
+	ld a, 1
+	ldh [hOverworldHMUseFound], a
 ; we are in front of a tree
 	ld d, CUT
 	call IsMoveInParty ; output: z flag = whether the move was found (z = not found; nz = found)
@@ -78,7 +84,7 @@ CheckForCut::
 	tx_pre WantToCutText
 	ld a, [wCurrentMenuItem]
 	and a ; if answered NO
-	jp nz, OverworldLoop
+	ret nz
 	ld a, 1
 	ld [wActionResultOrTookBattleTurn], a ; used cut successfully
 ; actual cutting stuff
@@ -96,12 +102,10 @@ CheckForCut::
 	ld a, $90
 	ldh [hWY], a
 	call UpdateSprites
-	callfar RedrawMapView ; should this be simply a jp RedrawMapView?
-	jp OverworldLoop
+	jp RedrawMapView
 .noCutInParty
 	call EnableAutoTextBoxDrawing
 	tx_pre_jump TreeCanBeCutText
-	jp OverworldLoop
 
 CheckForFlash::
 	ld a, [wObtainedBadges]
@@ -131,7 +135,7 @@ CheckForFlash::
 	call WaitForSoundToFinish
 	xor a
 	ld [wMapPalOffset], a
-	jp OverworldLoop
+	ret
 
 CheckForStrength:: ; marcelnote - this function is different from the others because it is called inside text_asm
 	ld a, [wObtainedBadges]

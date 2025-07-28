@@ -77,14 +77,6 @@ DEF LCDC_DEFAULT EQU LCDC_ON | LCDC_WIN_9C00 | LCDC_WIN_ON | LCDC_BLOCK21 | LCDC
 
 	call ClearSprites
 
-;;;;;;;;;;;;;;;;;;;; marcelnote - to detect stack overflow
-	ld hl, wStackOverflowCheck
-	ld a, CONTROL_VALUE1
-	ld [hli], a
-	ld a, CONTROL_VALUE2
-	ld [hl], a
-;;;;;;;;;;;;;;;;;;;;
-
 ;;;;;;;;;;;;;;;;;;;; marcelnote - shinpokered xorshift RNG
 ;finish initializing RNG
 ;joenote - added lines to save the RNG seed

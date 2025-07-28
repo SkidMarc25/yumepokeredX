@@ -353,6 +353,7 @@ hSpriteMapYCoord::    db
 hSpriteMapXCoord::    db
 
 NEXTU
+hOverworldHMUseFound:: ; marcelnote - new, for overworld HM use
 hItemAlreadyFound:: db
 	ds 2
 hDidntFindAnyHiddenObject:: db
