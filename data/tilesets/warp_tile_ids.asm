@@ -22,7 +22,7 @@ WarpTileIDPointers:
 	dw .PlateauWarpTileIDs
 	dw .AcademyWarpTileIDs    ; marcelnote - new tileset
 	dw .MountainWarpTileIDs   ; marcelnote - new tileset
-	dw .BeachHouseWarpTileIDs ; marcelnote - new tileset
+	dw .BeachHouseWarpTileIDs ; marcelnote - new tileset from pokeyellow
 	dw .PlantWarpTileIDs      ; marcelnote - new tileset for Power Plant
 	dw .GameWarpTileIDs       ; marcelnote - new tileset for Power Plant
 	assert_table_length NUM_TILESETS

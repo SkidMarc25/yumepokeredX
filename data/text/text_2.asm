@@ -834,6 +834,16 @@ _ColdDrinksText:: ; marcelnote - new for Marts
 	line "neatly arranged!"
 	done
 
+_HolidayBrochuresText:: ; marcelnote - new for Safari Rest houses
+	text "Holiday brochures!"
+
+	para "Beach resorts on"
+	line "MANDARIN ISLAND,"
+	cont "hikes around"
+	cont "MT.MOON, shopping"
+	cont "in CELADON..."
+	done
+
 _OutOfSafariBallsText::
 	text "PA: Ding-dong!"
 

@@ -9,3 +9,7 @@ HotSnacksText:: ; marcelnote - new for Marts
 ColdDrinksText:: ; marcelnote - new for Marts
 	text_far _ColdDrinksText
 	text_end
+
+HolidayBrochuresText:: ; marcelnote - new for Safari Rest houses
+	text_far _HolidayBrochuresText
+	text_end

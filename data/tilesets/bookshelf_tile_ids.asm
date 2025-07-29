@@ -27,6 +27,8 @@ BookshelfTileIDs:
 	bookshelf_tile ACADEMY,      $3A, BookOrSculptureText ; marcelnote - new tileset
 	bookshelf_tile ACADEMY,      $3C, BookOrSculptureText ; marcelnote - new tileset
 	bookshelf_tile ACADEMY,      $22, BookOrSculptureText ; marcelnote - new tileset
+	bookshelf_tile BEACH_HOUSE,  $50, HolidayBrochuresText ; marcelnote - new tileset from pokeyellow
+	bookshelf_tile BEACH_HOUSE,  $52, HolidayBrochuresText ; marcelnote - new tileset from pokeyellow
 	db -1 ; end
 
 BookshelfTileFacingDownIDs: ; marcelnote - new for SPRITE_FACING_DOWN

@@ -4,7 +4,7 @@
 	const_export SAFARIZONEEASTRESTHOUSE_SILPH_WORKER_M
 
 SafariZoneEastRestHouse_Object:
-	db $a ; border block
+	db $0 ; border block ; marcelnote - changed tileset from GATE
 
 	def_warp_events
 	warp_event  2,  7, SAFARI_ZONE_EAST, 5
@@ -12,9 +12,9 @@ SafariZoneEastRestHouse_Object:
 
 	def_bg_events
 
-	def_object_events
-	object_event  1,  3, SPRITE_SCIENTIST, WALK, UP_DOWN, TEXT_SAFARIZONEEASTRESTHOUSE_SCIENTIST
-	object_event  4,  2, SPRITE_ROCKER, STAY, NONE, TEXT_SAFARIZONEEASTRESTHOUSE_ROCKER
-	object_event  5,  2, SPRITE_SILPH_WORKER_M, STAY, NONE, TEXT_SAFARIZONEEASTRESTHOUSE_SILPH_WORKER_M
+	def_object_events ; marcelnote - modified for new layout
+	object_event  2,  2, SPRITE_SCIENTIST, WALK, LEFT_RIGHT, TEXT_SAFARIZONEEASTRESTHOUSE_SCIENTIST
+	object_event  5,  4, SPRITE_ROCKER, STAY, NONE, TEXT_SAFARIZONEEASTRESTHOUSE_ROCKER
+	object_event  6,  6, SPRITE_SILPH_WORKER_M, STAY, NONE, TEXT_SAFARIZONEEASTRESTHOUSE_SILPH_WORKER_M
 
 	def_warps_to SAFARI_ZONE_EAST_REST_HOUSE
