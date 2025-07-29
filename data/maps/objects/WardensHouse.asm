@@ -4,7 +4,7 @@
 	const_export WARDENSHOUSE_BOULDER
 
 WardensHouse_Object:
-	db $17 ; border block
+	db $0 ; border block ; marcelnote - modified blockset
 
 	def_warp_events
 	warp_event  4,  7, LAST_MAP, 4

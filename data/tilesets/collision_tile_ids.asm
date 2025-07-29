@@ -53,8 +53,8 @@ Lobby_Coll::
 Mansion_Coll:: ; marcelnote - added $59
 	coll_tiles $01, $05, $11, $12, $14, $1a, $1c, $2c, $53, $59
 
-Lab_Coll::
-	coll_tiles $00, $0c, $16, $1e, $34, $37 ; marcelnote - added $00, removed $26 (tileset switch)
+Lab_Coll:: ; marcelnote - reorganized tileset
+	coll_tiles $00, $34, $47, $4a, $5a, $5e
 
 Club_Coll:: ; marcelnote - changed $0f to $00, added $50, $51, $5e
 	coll_tiles $00, $1a, $1f, $26, $28, $29, $2c, $2d, $2e, $2f, $41, $50, $51, $5e

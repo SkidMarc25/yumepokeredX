@@ -44,6 +44,7 @@ ENDM
 .AcademyWarpTileIDs: ; marcelnote - new tileset
 	warp_tiles $1A, $1C
 
+.LabWarpTileIDs: ; marcelnote - reorganized tileset
 .PokecenterWarpTileIDs:
 .GameWarpTileIDs: ; marcelnote - new tileset from Lobby
 .ClubWarpTileIDs: ; marcelnote - added stairs for BattleHall
@@ -72,9 +73,6 @@ ENDM
 
 .MansionWarpTileIDs:
 	warp_tiles $1A, $1C, $53
-
-.LabWarpTileIDs:
-	warp_tiles $34
 
 .FacilityWarpTileIDs:
 	db $43, $58, $20

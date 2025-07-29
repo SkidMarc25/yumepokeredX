@@ -4,13 +4,14 @@
 	const_export FUCHSIAMEETINGROOM_SAFARI_ZONE_WORKER3
 
 FuchsiaMeetingRoom_Object:
-	db $17 ; border block
+	db $0 ; border block ; marcelnote - modified blockset
 
 	def_warp_events
 	warp_event  4,  7, LAST_MAP, 7
 	warp_event  5,  7, LAST_MAP, 7
 
 	def_bg_events
+	bg_event 11,  5, TEXT_FUCHSIAMEETINGROOM_PHONE ; marcelnote - new pay phones
 
 	def_object_events
 	object_event  4,  1, SPRITE_SAFARI_ZONE_WORKER, STAY, DOWN, TEXT_FUCHSIAMEETINGROOM_SAFARI_ZONE_WORKER1

@@ -24,3 +24,10 @@ _FuchsiaMeetingRoomSafariZoneWorker3::
 	para "I think he's got"
 	line "a speech problem!"
 	done
+
+_FuchsiaMeetingRoomPhoneText:: ; marcelnote - new pay phones
+	text "A pay phone?"
+
+	para "It doesn't seem"
+	line "to be working..."
+	done

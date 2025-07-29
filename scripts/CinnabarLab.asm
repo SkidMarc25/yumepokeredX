@@ -23,6 +23,7 @@ CinnabarLab_TextPointers:
 	dw_const CinnabarLabMeetingRoomSignText, TEXT_CINNABARLAB_MEETING_ROOM_SIGN
 	dw_const CinnabarLabRAndDSignText,       TEXT_CINNABARLAB_R_AND_D_SIGN
 	dw_const CinnabarLabTestingRoomSignText, TEXT_CINNABARLAB_TESTING_ROOM_SIGN
+	dw_const CinnabarLabPhoneText,           TEXT_CINNABARLAB_PHONE ; marcelnote - new pay phones
 	; Trade room
 	; none
 	; Metronome room
@@ -218,3 +219,7 @@ CinnabarLabFossilRoomScientist2Text:
 
 LoadFossilItemAndMonNameBank1D:
 	jpfar LoadFossilItemAndMonName
+
+CinnabarLabPhoneText: ; marcelnote - new pay phones
+	text_far _CinnabarLabPhoneText
+	text_end

@@ -10,7 +10,7 @@ BookshelfTileIDs:
 	bookshelf_tile HOUSE,        $1E, BookOrSculptureText
 	bookshelf_tile MANSION,      $32, BookOrSculptureText
 	bookshelf_tile BIG_HOUSE,    $32, BookOrSculptureText ; marcelnote - merged REDS_HOUSE tilesets
-	bookshelf_tile LAB,          $28, BookOrSculptureText
+	bookshelf_tile LAB,          $40, BookOrSculptureText ; marcelnote - reorganized tileset
 	bookshelf_tile LOBBY,        $16, ElevatorText
 	bookshelf_tile GYM,          $1D, BookOrSculptureText
 	bookshelf_tile GATE,         $22, BookOrSculptureText

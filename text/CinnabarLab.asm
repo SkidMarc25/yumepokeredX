@@ -182,3 +182,10 @@ _CinnabarLabFossilRoomScientist1ComeAgainText::
 	text "Aiyah! You come"
 	line "again!"
 	done
+
+_CinnabarLabPhoneText:: ; marcelnote - new pay phones
+	text "A pay phone?"
+
+	para "It doesn't seem"
+	line "to be working..."
+	done

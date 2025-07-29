@@ -14,7 +14,7 @@
 	const_export CINNABARLABFOSSILROOM_SCIENTIST2
 
 CinnabarLab_Object:
-	db $17 ; border block
+	db $0 ; border block ; marcelnote - modified blockset
 
 	def_warp_events
 	; Lobby
@@ -39,6 +39,7 @@ CinnabarLab_Object:
 	bg_event  9,  4, TEXT_CINNABARLAB_MEETING_ROOM_SIGN
 	bg_event 13,  4, TEXT_CINNABARLAB_R_AND_D_SIGN
 	bg_event 17,  4, TEXT_CINNABARLAB_TESTING_ROOM_SIGN
+	bg_event  5,  4, TEXT_CINNABARLAB_PHONE ; marcelnote - new pay phones
 	; Trade room
 	; none
 	; Metronome room
