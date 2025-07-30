@@ -8,8 +8,7 @@
   <img src="/docs/boxart/yumepokeblue.png"  alt="Yume Blue"  width="256">
 </p>
 
-
-This is an enhancement rom hack of Pokémon Red and Blue based on the [pokered disassembly](https://github.com/pret/pokered).
+Pokémon Yume is an enhancement rom hack of Pokémon Red and Blue based on the [pokered disassembly](https://github.com/pret/pokered).
 
 夢 (yume) is the Japanese kanji for *dream* – the intent being to provide a reimagined version of these classic games.
 
