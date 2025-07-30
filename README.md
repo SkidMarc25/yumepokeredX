@@ -114,8 +114,8 @@ Link cable functionalities have not been tested yet – try it at your own risk.
 ![pokemon_academy](/docs/screenshots/pokemon_academy.png?raw=true)
 
 ![nests](/docs/screenshots/nests.png?raw=true)
-![mandarin_island](/docs/screenshots/mandarin_island.png?raw=true)
 ![skills](/docs/screenshots/skills.png?raw=true)
+![mandarin_island](/docs/screenshots/mandarin_island.png?raw=true)
 ![agatha_sidequest](/docs/screenshots/agatha_sidequest.png?raw=true)
 ![blue_titlescreen](/docs/screenshots/blue_titlescreen.png?raw=true)
 
