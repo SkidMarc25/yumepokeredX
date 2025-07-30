@@ -10,7 +10,7 @@
 
 Pokémon Yume 夢 Red/Green/Blue is an enhancement hack of Pokémon Red and Blue built on the [pokered disassembly](https://github.com/pret/pokered).
 It aims to enrich the originals with improved gameplay balance, greater Pokémon accessibility, and carefully integrated additions that feel as though they were always meant to be there.
-Above all, it seeks to preserve their nostalgia, charm, and spirit.
+Above all, it seeks to preserve their nostalgia, charm, and spirit of these beloved games.
 
 夢 (Yume), meaning dream, symbolizes a return to Kanto with a fresh sense of wonder.
 Loosely inspired by the anime, manga, and later Pokémon generations, Yume features expanded storylines, new areas, and subtle cultural touches highlighting the games' Japanese roots.
