@@ -104,18 +104,27 @@ Link cable functionalities have not been tested yet – try it at your own risk.
 ![green_titlescreen](/docs/screenshots/green_titlescreen.png?raw=true)
 ![pokemon_tower](/docs/screenshots/pokemon_tower.png?raw=true)
 ![battle_infobox](/docs/screenshots/battle_infobox.png?raw=true)
-
 ![cut_tree](/docs/screenshots/cut_tree.png?raw=true)
-![pokemon_academy](/docs/screenshots/pokemon_academy.png?raw=true)
-![new_family](/docs/screenshots/new_family.png?raw=true)
+![pokecenter](/docs/screenshots/pokecenter.png?raw=true)
 
+![move_reminder](/docs/screenshots/move_reminder.png?raw=true)
+![new_family](/docs/screenshots/new_family.png?raw=true)
+![red_titlescreen](/docs/screenshots/red_titlescreen.png?raw=true)
 ![key_items](/docs/screenshots/key_items.png?raw=true)
 ![cinnabar_island](/docs/screenshots/cinnabar_island.png?raw=true)
-![fuchsia](/docs/screenshots/fuchsia.png?raw=true)
 
-![mandarin_island](/docs/screenshots/mandarin_island.png?raw=true)
+![pokemon_academy](/docs/screenshots/pokemon_academy.png?raw=true)
 ![celadon_grove](/docs/screenshots/celadon_grove.png?raw=true)
-![town_map](/docs/screenshots/town_map.png?raw=true)
+![mandarin_island](/docs/screenshots/mandarin_island.png?raw=true)
+![power_plant](/docs/screenshots/power_plant.png?raw=true)
+![nests](/docs/screenshots/nests.png?raw=true)
+
+![citrus_ferries](/docs/screenshots/citrus_ferries.png?raw=true)
+![fuchsia](/docs/screenshots/fuchsia.png?raw=true)
+![blue_titlescreen](/docs/screenshots/blue_titlescreen.png?raw=true)
+![agatha_sidequest](/docs/screenshots/agatha_sidequest.png?raw=true)
+![skills](/docs/screenshots/skills.png?raw=true)
+
 
 Note: colors are only available in SGB mode for now.
 
