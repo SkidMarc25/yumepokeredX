@@ -1,7 +1,5 @@
 # Pokémon Yume 夢 Red/Green/Blue
 
-An enhancement rom hack of Pokémon Red and Blue based on the [pokered disassembly](https://github.com/pret/pokered).
-
 <p align="center">
   <img src="/docs/boxart/yumepokered.png"   alt="Yume Red"   width="256">
   &nbsp;&nbsp;&nbsp;
@@ -10,22 +8,26 @@ An enhancement rom hack of Pokémon Red and Blue based on the [pokered disassemb
   <img src="/docs/boxart/yumepokeblue.png"  alt="Yume Blue"  width="256">
 </p>
 
-夢 (yume) is the Japanese kanji for *dream* – the intent being to provide a reimagined version of these classic games.
+Pokémon Yume 夢 Red/Green/Blue is an enhancement hack of Pokémon Red and Blue built on the [pokered disassembly](https://github.com/pret/pokered).
+It aims to enrich the originals with improved gameplay balance, greater Pokémon accessibility, and carefully integrated additions that feel as though they were always meant to be there.
+Above all, it seeks to preserve their nostalgia, charm, and spirit.
 
-Pokémon Yume Red/Blue/Green aims to improve the original games in terms of gameplay balance, story content, and Pokémon accessibility, all the while trying to stay faithful to the Gen 1 experience.
-To do this, inspiration was loosely taken from the anime, later Pokémon generations, or the manga.
-In some small ways it is also a 'relocalization' effort: it tries to highlight the games' Japanese influence through some new visuals and dialogue.
-Its kanji name 夢 is also an homage to [shinpokered](https://github.com/jojobear13/shinpokered), a groundbreaking hack which provided the initial inspiration for this project.
+夢 (Yume), meaning dream, symbolizes a return to Kanto with a fresh sense of wonder.
+Loosely inspired by the anime, manga, and later Pokémon generations, Yume features expanded storylines, new areas, and subtle cultural touches highlighting the games' Japanese roots.
 
-### Overview
+### What's new?
 
-- Catch all 151 Pokémon!
-- Play as a girl or a boy.
-- New areas: Cinnabar Volcano, Saffron Pokémon Academy, Mt. Moon square, Celadon Grove, and much more...
-- ... and even a brand-new town: Mandarin Island.
-- Postgame: new events involving the Elite 4 members, Gen 2 tie-ins, a restored Oak battle, and more!
-- New storyline leading to Mew.
-- Many popular QoL changes: running shoes, more item space, easier HM use, experience bar...
+- **Catch 'em all!** All original 151 Pokémon are available through natural gameplay.
+
+- **Play as Red or Green:** Choose to adventure as a girl or a boy.
+
+- **Revisit Kanto:** Explore new areas like the Cinnabar Volcano, the Saffron Pokémon Academy, Celadon Grove... and even an all-new Mandarin Island!
+
+- **Expanded Postgame:** New quests, Elite Four rematches, Gen 2 tie-ins, a restored Prof. Oak battle, and more!
+
+- **Mew quest:** A proper storyline leading to the Mythical Pokémon.
+
+- **Quality-of-life improvements:** Running shoes, bigger bag space, easier HM usage, experience bars, repel reuse prompts, a move deleter, and much more.
 
 ### Gameplay updates
 
@@ -118,7 +120,7 @@ Note: colors are only available in SGB mode for now.
 
 This project owes a lot to existing works, and above all to the pret [pokered](https://github.com/pret/pokered) disassemby project, but also:
 
-- [Shinpokered](https://github.com/jojobear13/shinpokered): girl player, experience bar, temporary field moves, many bug fixes,
+- [Shinpokered](https://github.com/jojobear13/shinpokered): initial inspiration, including the kanji name; girl player, experience bar, temporary field moves, many bug fixes,
 - [PureRGB](https://github.com/Vortyne/pureRGB): overworld HM use, ROM space management, repel reuse prompt, use items with Select, lava and barrel graphics, many other code snippets,
 - [Extreme Yellow](https://github.com/RainbowMetalPigeon/ExtremeYellow): overworld HM use, dynamic TM seller,
 - [Yellow Legacy](https://github.com/cRz-Shadows/Pokemon_Yellow_Legacy): inspiration for some balance changes,
