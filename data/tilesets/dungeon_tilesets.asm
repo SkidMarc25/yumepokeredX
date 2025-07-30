@@ -8,6 +8,7 @@ DungeonTilesets:
 	db GATE
 	db LAB
 	db FACILITY
+	db PLANT ; marcelnote - new tileset from FACILITY
 	db CEMETERY
 	db GYM
 	db BIG_HOUSE  ; marcelnote - added tileset
