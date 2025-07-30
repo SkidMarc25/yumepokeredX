@@ -99,18 +99,18 @@ OverworldLoopLessDelay::
 	ldh a, [hOverworldHMUseFound]
 	and a
 	jp nz, OverworldLoop
-	call CheckForHiddenObjectOrBookshelfOrCardKeyDoor
-	ldh a, [hItemAlreadyFound] ; a = $ff if not found, = 0 if found
-	and a
-	jp z, OverworldLoop ; jump if a hidden object or bookshelf was found, but not if a card key door was found
+;	call CheckForHiddenObjectOrBookshelfOrCardKeyDoor
+;	ldh a, [hItemAlreadyFound] ; a = $ff if not found, = 0 if found
+;	and a
+;	jp z, OverworldLoop ; jump if a hidden object or bookshelf was found, but not if a card key door was found
 	call IsSpriteOrSignInFrontOfPlayer
 	ldh a, [hTextID]
 	and a
 	jr nz, .displayDialogue ; checks for Strength via BoulderText
-;	call CheckForHiddenObjectOrBookshelfOrCardKeyDoor ; marcelnote - check Hidden objects after sprites
-;	ldh a, [hItemAlreadyFound] ; a = $ff if not found, = 0 if found
-;	and a
-;	jp z, OverworldLoop ; jump if a hidden object or bookshelf was found, but not if a card key door was found
+	call CheckForHiddenObjectOrBookshelfOrCardKeyDoor ; marcelnote - check Hidden objects after sprites
+	ldh a, [hItemAlreadyFound] ; a = $ff if not found, = 0 if found
+	and a
+	jp z, OverworldLoop ; jump if a hidden object or bookshelf was found, but not if a card key door was found
 	callfar CheckForSurf ; jp OverworldLoop if succeeds
 	ldh a, [hOverworldHMUseFound]
 	and a
