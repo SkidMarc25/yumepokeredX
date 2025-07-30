@@ -10,7 +10,7 @@
 	const_export CELADONGROVE_GREAT_BALL
 
 CeladonGrove_Object:
-	db $3 ; border block
+	db $0 ; border block
 
 	def_warp_events
 	warp_event 38, 47, CELADON_GROVE_SOUTH_GATE, 1

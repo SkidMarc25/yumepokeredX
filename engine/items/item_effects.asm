@@ -2901,7 +2901,6 @@ SendNewMonToBox:
 IsNextTileShoreOrWater:    ; marcelnote - modified to remove surfing on statues
 	ld a, [wCurMapTileset]
 	ld hl, WaterTilesets
-	;ld de, 1
 	call IsInList
 	jr nc, .notShoreOrWater
 	ld hl, WaterTile
@@ -2914,12 +2913,9 @@ IsNextTileShoreOrWater:    ; marcelnote - modified to remove surfing on statues
     jr z, .skipShoreTiles
 	cp SHIP ; SS Anne tileset
 	jr z, .skipShoreTiles
-	cp FOREST ; Forest tileset ; marcelnote - now different from Safari Zone tileset
-	jr z, .skipShoreTiles
 	ld hl, ShoreTiles
 .skipShoreTiles
 	ld a, [wTileInFrontOfPlayer] ; tile in front of player
-	;ld de, 1
 	call IsInList
 	jr c, .shoreOrWater
 .notShoreOrWater
@@ -2931,7 +2927,7 @@ IsNextTileShoreOrWater:    ; marcelnote - modified to remove surfing on statues
 
 ; shore and water tiles
 ShoreTiles:
-	db $48 ; eastern shore tile in Safari Zone
+	db $48 ; eastern shore tile in Safari Zone ; marcelnote - should move it to $32 as well
 	db $32 ; usual eastern shore tile
 WaterTile:
 	db $14
