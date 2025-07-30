@@ -43,7 +43,7 @@ Loosely inspired by the anime, manga, and later Pokémon generations, Yume featu
 - The rival's teams now include a more diverse roster to better reflect his storyline.
 - New trainers to fight in new and existing areas. (You may recognize some from the anime!)
 - Rematches for Gym leaders and the Elite 4 with stronger teams and movesets!
-- A new Battle Hall with random 3vs3 battles.
+- A new **Battle Hall** with random 3vs3 battles.
 
 **Wild encounters**
 - Wild encounters have been reworked to increase diversity and make many Pokémon available earlier in the game.
@@ -55,13 +55,22 @@ Loosely inspired by the anime, manga, and later Pokémon generations, Yume featu
 - A new NPC gives the fossil you didn't choose in Mt. Moon later in the game.
 - Either Hitmonlee or Hitmonchan is also obtainable from a new NPC before the Elite 4.
 
+### New content
+
 **Maps**
-- New zones including Mandarin Island, Cinnabar Volcano, Saffron Pokémon Academy, Mt. Moon square, Celadon Grove.
-- Pokécenters have a modern layout with the PC next to the nurse.
+- New zones including Mandarin Island, Cinnabar Volcano, Saffron Pokémon Academy, Mt. Moon square, Celadon Grove... and more.
+- Take the brand-new Citrus ferries from Vermilion to Mandarin Island.
+- Refurbished Pokécenters! Modern layout with the PC next to the nurse, sleeker design.
+- New Celadon Mart floor where PP-related items are sold in the postgame (Ether, Elixir, PP Up...).
 - Power Plant has updated mechanics and graphics.
 
-### Visual updates
+**Story**
+- Postgame quests around each Elite 4 member to unlock their rematches.
+- A hidden location and adversary to unlock after battling Prof. Oak.
+- New secrets in the Cinnabar Mansion could lead you to meet the Mythical Pokémon, Mew.
+- Plenty of extra dialogue, woven naturally into old and new locations.
 
+**Visual updates**
 - Several maps have updated graphics and new animations.
 - Gym leaders have their own sprites.
 - New player sprites when surfing or running.
@@ -74,6 +83,7 @@ Loosely inspired by the anime, manga, and later Pokémon generations, Yume featu
 - Run by pressing B.
 - Use Cut, Surf, Strength, and Flash just by pressing A on the overworld.
 - HMs and other field moves can be taught without taking a move slot.
+- All TMs can be bought at the Celadon Mart. Each new badge unlocks new TMs to buy.
 - Bag space expanded to 30 item slots, and key items have a new dedicated bag pocket.
 - Assign key items like Bicycle, Fishing rods, or Itemfinder to the Select button.
 - Prompt to reuse Repel after finishing one.
@@ -81,8 +91,6 @@ Loosely inspired by the anime, manga, and later Pokémon generations, Yume featu
 - Move deleter and Move reminder in Fuchsia.
 - Experience bar in battle.
 - Improved move info box in battle.
-- Each badge unlocks new TMs to buy at the Celadon Mart. All TMs become available after beating the Elite Four.
-- New Celadon Mart floor where you can buy PP-related items in the postgame (Ether, Elixir, PP Up...).
 - Turn Exp.All on and off from the bag.
 - Faster dialogue to buy coins at the Game Corner.
 - New nurse room in the SS.Anne.
