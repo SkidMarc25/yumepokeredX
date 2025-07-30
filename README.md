@@ -104,13 +104,13 @@ Link cable functionalities have not been tested yet – try it at your own risk.
 ![green_titlescreen](/docs/screenshots/green_titlescreen.png?raw=true)
 ![pokecenter](/docs/screenshots/pokecenter.png?raw=true)
 ![cut_tree](/docs/screenshots/cut_tree.png?raw=true)
-![cinnabar_island](/docs/screenshots/cinnabar_island.png?raw=true)
+![move_reminder](/docs/screenshots/move_reminder.png?raw=true)
 ![battle_infobox](/docs/screenshots/battle_infobox.png?raw=true)
 
 ![key_items](/docs/screenshots/key_items.png?raw=true)
 ![power_plant](/docs/screenshots/power_plant.png?raw=true)
 ![red_titlescreen](/docs/screenshots/red_titlescreen.png?raw=true)
-![move_reminder](/docs/screenshots/move_reminder.png?raw=true)
+![cinnabar_island](/docs/screenshots/cinnabar_island.png?raw=true)
 ![pokemon_academy](/docs/screenshots/pokemon_academy.png?raw=true)
 
 ![nests](/docs/screenshots/nests.png?raw=true)
