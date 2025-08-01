@@ -2123,7 +2123,13 @@ DisplayBattleMenu:: ; marcelnote - added B button as shortcut to Run
 	ld hl, wMaxMenuItem
 	ld a, $1
 	ld [hli], a ; wMaxMenuItem
-	ld [hl], PAD_RIGHT | PAD_A | PAD_B ; wMenuWatchedKeys
+	ld a, [wIsInBattle]
+	cp $2 ; trainer battle?
+	ld a, PAD_RIGHT | PAD_A
+	jr z, .leftColumn_TrainerBattle
+	or PAD_B ; also watch B outside trainer battles
+.leftColumn_TrainerBattle
+	ld [hl], a ; wMenuWatchedKeys
 	call HandleMenuInput
 	bit B_PAD_A, a
 	jr nz, .AButtonPressed
@@ -2155,11 +2161,16 @@ DisplayBattleMenu:: ; marcelnote - added B button as shortcut to Run
 	ld hl, wMaxMenuItem
 	ld a, $1
 	ld [hli], a ; wMaxMenuItem
-	ld a, PAD_LEFT | PAD_A | PAD_B
-	ld [hli], a ; wMenuWatchedKeys
+	ld a, [wIsInBattle]
+	cp $2 ; trainer battle?
+	ld a, PAD_LEFT | PAD_A
+	jr z, .rightColumn_TrainerBattle
+	or PAD_B ; also watch B outside trainer battles
+.rightColumn_TrainerBattle
+	ld [hl], a ; wMenuWatchedKeys
 	call HandleMenuInput
 	bit B_PAD_LEFT, a
-	jr nz, .leftColumn
+	jp nz, .leftColumn
 	bit B_PAD_B, a
 	jr nz, .BButtonPressed
 	; A button pressed
@@ -2196,7 +2207,7 @@ DisplayBattleMenu:: ; marcelnote - added B button as shortcut to Run
 	ldcoord_a 13, 14 ; clear upper cursor position in right column
 	ld a, "▶"
 	ldcoord_a 13, 16 ; put cursor at Run
-	jr .rightColumn
+	jp .rightColumn
 .notItemMenu
 	cp $2 ; was the party menu selected?
 	jr nz, .handleMenuSelection
