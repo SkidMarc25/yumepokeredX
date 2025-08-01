@@ -625,6 +625,27 @@ ShowPokedexDataInternal:
 	call TextCommandProcessor ; print pokedex description text
 	xor a
 	ldh [hClearLetterPrintingDelayFlags], a
+	CheckEvent EVENT_GOT_POKEDEX
+	jr z, .waitForButtonPress ; don't display more pages if showing starters in Oak's lab
+.waitForButtonPress2
+	call JoypadLowSensitivity
+	ldh a, [hJoy5]
+	and PAD_A | PAD_B
+	jr z, .waitForButtonPress2
+	hlcoord 1, 11
+	lb bc, 5, 18
+	call ClearScreenArea ; clear below sprite
+	hlcoord 9, 6
+	lb bc, 3, 10
+	call ClearScreenArea ; clear height and weight
+	ld c, 20
+	call DelayFrames
+	hlcoord 9, 6
+	ld de, PokedexTypeText
+	call PlaceString ; "TYPE/"
+	hlcoord 10, 7
+	predef PrintMonType ; Pokémon type
+	call PrintBaseStats
 .waitForButtonPress
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
@@ -642,6 +663,81 @@ ShowPokedexDataInternal:
 	ld a, $77 ; max volume
 	ldh [rAUDVOL], a
 	ret
+
+PrintBaseStats: ; marcelnote - new
+	ldh a, [hUILayoutFlags]
+	push af
+	set BIT_SINGLE_SPACED_LINES, a
+	ldh [hUILayoutFlags], a
+	hlcoord 2, 11 ; Stats text
+	ld de, PokedexStatsText
+	call PlaceString
+	pop af
+	ldh [hUILayoutFlags], a
+
+    ld c, 5                 ; number of stats
+    ld de, SCREEN_WIDTH - 8 ; line offset between bars
+    hlcoord 10, 11          ; hl = coord of first stat bar
+
+.stat_loop
+    push bc ; save c = stat counter
+    push hl ; save hl = screen coord
+
+    ld a, 5
+    sub c
+    ld c, a
+    ld b, 0
+    ld hl, wMonHBaseStats
+    add hl, bc
+    ld a, [hl] ; a = [wMonHBaseStats + (5 - c)], current stat 0-255
+    srl a
+    srl a      ; scale stat 0–63
+    ld c, a    ; c = pixels to fill
+
+    pop hl     ; restore hl = screen coord
+    ld b, 8    ; 8 tiles per bar
+
+.tile_loop
+    ld a, c
+    sub 8
+    jr c, .partial_tile
+    ld c, a
+    ld a, $58  ; full tile
+    ld [hli], a
+    dec b
+    jr nz, .tile_loop
+    jr .bar_done
+
+.partial_tile
+    add 8 + $50 ; $50 = empty, $51 = 1px, etc
+    ld [hli], a
+    dec b
+    jr z, .bar_done
+
+    ld a, $50
+.empty_tile
+    ld [hli], a
+    dec b
+    jr nz, .empty_tile
+
+.bar_done
+    add hl, de ; move hl to next bar start
+    pop bc ; restore c = stat counter
+    dec c
+    jr nz, .stat_loop
+
+    ret
+
+
+PokedexTypeText:
+	db   "TYPE/@"
+
+PokedexStatsText:
+	db   "HP"
+	next "ATTACK"
+	next "DEFENSE"
+	next "SPEED"
+	next "SPECIAL@"
 
 HeightWeightText:
 	db   "HT  ?′??″"

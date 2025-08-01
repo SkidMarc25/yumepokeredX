@@ -195,6 +195,8 @@ PokedexEntryPointers:
 ; string: species name
 ; height in feet, inches
 ; weight in tenths of a pound
+; height in dg (tenths of meter)
+; weight in hg (tenths of kg)
 ; text entry
 
 RhydonDexEntry:

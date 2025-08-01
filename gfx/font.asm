@@ -26,6 +26,9 @@ TextBoxGraphicsEnd::
 PokedexTileGraphics: INCBIN "gfx/pokedex/pokedex.2bpp"
 PokedexTileGraphicsEnd:
 
+StatsBarGraphics: INCBIN "gfx/pokedex/stats_bar.2bpp" ; marcelnote - new
+StatsBarGraphicsEnd:
+
 WorldMapTileGraphics: INCBIN "gfx/town_map/town_map.2bpp"
 WorldMapTileGraphicsEnd:
 
