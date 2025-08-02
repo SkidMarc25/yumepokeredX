@@ -6,6 +6,6 @@ LoadPokedexTilePatterns: ; marcelnote - gathered all dex tiles in same file
 	call CopyVideoData
 ; marcelnote - new for displaying base stats bar in pokedex
 	ld de, StatsBarGraphics
-	ld hl, vChars2 tile $50 ; if this works then we can merge the two tilesets
+	ld hl, vChars2 tile $40 ; if this works then we can merge the two tilesets
 	lb bc, BANK(StatsBarGraphics), (StatsBarGraphicsEnd - StatsBarGraphics) / $10
 	jp CopyVideoData

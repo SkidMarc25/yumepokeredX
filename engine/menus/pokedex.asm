@@ -675,58 +675,66 @@ PrintBaseStats: ; marcelnote - new
 	pop af
 	ldh [hUILayoutFlags], a
 
-    ld c, 5                 ; number of stats
-    ld de, SCREEN_WIDTH - 8 ; line offset between bars
-    hlcoord 10, 11          ; hl = coord of first stat bar
+	ld c, 5                 ; number of stats
+	hlcoord 10, 11          ; hl = coord of first stat bar
 
 .stat_loop
-    push bc ; save c = stat counter
-    push hl ; save hl = screen coord
+	push bc ; save c = stat counter
+	push hl ; save hl = screen coord
 
-    ld a, 5
-    sub c
-    ld c, a
-    ld b, 0
-    ld hl, wMonHBaseStats
-    add hl, bc
-    ld a, [hl] ; a = [wMonHBaseStats + (5 - c)], current stat 0-255
-    srl a
-    srl a      ; scale stat 0–63
-    ld c, a    ; c = pixels to fill
+	ld a, 5
+	sub c
+	ld c, a
+	ld b, 0
+	ld hl, wMonHBaseStats
+	add hl, bc
+	ld a, [hl] ; a = [wMonHBaseStats + (5 - c)], current stat 0-255
+	srl a
+	cp $3f ; is stat >= 128?
+	ld e, 0
+	jr c, .lessThan128
+	sub $3f
+	ld e, 8
+.lessThan128
+	ld c, a    ; c = pixels to fill
 
-    pop hl     ; restore hl = screen coord
-    ld b, 8    ; 8 tiles per bar
+	pop hl     ; restore hl = screen coord
+	ld b, 8    ; 8 tiles per bar
 
 .tile_loop
-    ld a, c
-    sub 8
-    jr c, .partial_tile
-    ld c, a
-    ld a, $58  ; full tile
-    ld [hli], a
-    dec b
-    jr nz, .tile_loop
-    jr .bar_done
+	ld a, c
+	sub 8
+	jr c, .partial_tile
+	ld c, a
+	ld a, $48  ; full tile
+	add e
+	ld [hli], a
+	dec b
+	jr nz, .tile_loop
+	jr .bar_done
 
 .partial_tile
-    add 8 + $50 ; $50 = empty, $51 = 1px, etc
-    ld [hli], a
-    dec b
-    jr z, .bar_done
+	add 8 + $40 ; $40 = empty, $41 = 1px, etc
+	add e
+	ld [hli], a
+	dec b
+	jr z, .bar_done
 
-    ld a, $50
+	ld a, $40
+	add e
 .empty_tile
-    ld [hli], a
-    dec b
-    jr nz, .empty_tile
+	ld [hli], a
+	dec b
+	jr nz, .empty_tile
 
 .bar_done
-    add hl, de ; move hl to next bar start
-    pop bc ; restore c = stat counter
-    dec c
-    jr nz, .stat_loop
+	ld de, SCREEN_WIDTH - 8 ; line offset between bars
+	add hl, de ; move hl to next bar start
+	pop bc ; restore c = stat counter
+	dec c
+	jr nz, .stat_loop
 
-    ret
+	ret
 
 
 PokedexTypeText:
