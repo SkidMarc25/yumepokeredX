@@ -632,6 +632,8 @@ ShowPokedexDataInternal:
 	ldh a, [hJoy5]
 	and PAD_A | PAD_B
 	jr z, .waitForButtonPress2
+	ld a, SFX_PRESS_AB
+	call PlaySound
 	hlcoord 1, 11
 	lb bc, 5, 18
 	call ClearScreenArea ; clear below sprite
@@ -678,7 +680,7 @@ PrintBaseStats: ; marcelnote - new
 	ld c, 5                 ; number of stats
 	hlcoord 10, 11          ; hl = coord of first stat bar
 
-.stat_loop
+.loopStats
 	push bc ; save c = stat counter
 	push hl ; save hl = screen coord
 
@@ -701,38 +703,38 @@ PrintBaseStats: ; marcelnote - new
 	pop hl     ; restore hl = screen coord
 	ld b, 8    ; 8 tiles per bar
 
-.tile_loop
+.loopFullTile
 	ld a, c
 	sub 8
-	jr c, .partial_tile
+	jr c, .partialTile
 	ld c, a
 	ld a, $48  ; full tile
 	add e
 	ld [hli], a
 	dec b
-	jr nz, .tile_loop
-	jr .bar_done
+	jr nz, .loopFullTile
+	jr .done
 
-.partial_tile
+.partialTile
 	add 8 + $40 ; $40 = empty, $41 = 1px, etc
 	add e
 	ld [hli], a
 	dec b
-	jr z, .bar_done
+	jr z, .done
 
 	ld a, $40
 	add e
-.empty_tile
+.loopEmptyTile
 	ld [hli], a
 	dec b
-	jr nz, .empty_tile
+	jr nz, .loopEmptyTile
 
-.bar_done
+.done
 	ld de, SCREEN_WIDTH - 8 ; line offset between bars
 	add hl, de ; move hl to next bar start
 	pop bc ; restore c = stat counter
 	dec c
-	jr nz, .stat_loop
+	jr nz, .loopStats
 
 	ret
 
