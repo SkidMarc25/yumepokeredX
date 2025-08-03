@@ -95,7 +95,7 @@ Loosely inspired by the anime, manga, and later Pokémon generations, Yume featu
 - Faster dialogue to buy coins at the Game Corner.
 - New nurse room in the SS.Anne.
 - Pokemon base stats can be consulted directly in the Pokédex.
-- A NPC will allow you to view DVs and Stat.Exp (the Gen1 ancestors of IVs and EVs).
+- A NPC will allow you to view DVs and Stat.Exp (the Gen1 equivalents of IVs and EVs).
 
 There are also many other smaller tweaks to the original game, and still more to come!
 
