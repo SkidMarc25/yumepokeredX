@@ -130,7 +130,7 @@ PalletTownDaisyScript: ; marcelnote - this was adjusted to move on to SCRIPT_PAL
 	predef HideObject
 	ld a, HS_DAISY_WALKING
 	ld [wMissableObjectIndex], a
-	predef_jump ShowObject
+	predef ShowObject
 
 	ld a, SCRIPT_PALLETTOWN_NOOP
 	ld [wPalletTownCurScript], a
