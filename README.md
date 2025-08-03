@@ -42,7 +42,7 @@ Loosely inspired by the anime, manga, and later Pokémon generations, Yume featu
 - Several Gym leader teams were slightly modified (but trying to keep their theme intact!).
 - The rival's teams now include a more diverse roster to better reflect his storyline.
 - New trainers to fight in new and existing areas. (You may recognize some from the anime!)
-- Rematches for Gym leaders and the Elite 4 with stronger teams and movesets!
+- Rematches for Gym leaders and the Elite 4 with stronger teams and movesets.
 - A new **Battle Hall** with random 3vs3 battles.
 
 **Wild encounters**
