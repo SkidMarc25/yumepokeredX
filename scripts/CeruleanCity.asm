@@ -246,8 +246,9 @@ CeruleanCity_TextPointers:
 	dw_const CeruleanCityTrainerTipsText,   TEXT_CERULEANCITY_TRAINER_TIPS
 	dw_const MartSignText,                  TEXT_CERULEANCITY_MART_SIGN
 	dw_const PokeCenterSignText,            TEXT_CERULEANCITY_POKECENTER_SIGN
-	dw_const CeruleanCityBikeShopSign,      TEXT_CERULEANCITY_BIKESHOP_SIGN
-	dw_const CeruleanCityGymSign,           TEXT_CERULEANCITY_GYM_SIGN
+	dw_const CeruleanCityBikeShopSignText,  TEXT_CERULEANCITY_BIKESHOP_SIGN
+	dw_const CeruleanCityGymSignText,       TEXT_CERULEANCITY_GYM_SIGN
+	dw_const CeruleanCityPhoneText,         TEXT_CERULEANCITY_PHONE ; marcelnote - new
 
 CeruleanCityRivalText:
 	text_asm
@@ -432,10 +433,14 @@ CeruleanCityTrainerTipsText:
 	text_far _CeruleanCityTrainerTipsText
 	text_end
 
-CeruleanCityBikeShopSign:
-	text_far _CeruleanCityBikeShopSign
+CeruleanCityBikeShopSignText:
+	text_far _CeruleanCityBikeShopSignText
 	text_end
 
-CeruleanCityGymSign:
-	text_far _CeruleanCityGymSign
+CeruleanCityGymSignText:
+	text_far _CeruleanCityGymSignText
+	text_end
+
+CeruleanCityPhoneText: ; marcelnote - new
+	text_far _CeruleanCityPhoneText
 	text_end

@@ -41,6 +41,7 @@ SaffronCity_Object:
 	bg_event 27, 29, TEXT_SAFFRONCITY_MR_PSYCHICS_HOUSE_SIGN
 	bg_event  1, 19, TEXT_SAFFRONCITY_SILPH_CO_LATEST_PRODUCT_SIGN
 	bg_event 29, 21, TEXT_SAFFRONCITY_POKEMON_ACADEMY_SIGN  ; marcelnote - added Pokemon Academy
+	bg_event 14,  5, TEXT_SAFFRONCITY_PHONE ; marcelnote - new
 
 	def_object_events
 IF DEF(_DEBUG) ; marcelnote - added for debug

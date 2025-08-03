@@ -32,6 +32,13 @@ _CeladonMart1FCurrentFloorSignText::
 	line "    COUNTER"
 	done
 
+_CeladonMart1FPhoneText:: ; marcelnote - new
+	text "A pay phone?"
+
+	para "It doesn't seem"
+	line "to be working..."
+	done
+
 _CeladonMart2FMiddleAgedManText::
 	text "SUPER REPEL keeps"
 	line "weak #MON at"

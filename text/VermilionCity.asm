@@ -151,6 +151,13 @@ _VermilionCityHarborSignText::
 	text "VERMILION HARBOR"
 	done
 
+_VermilionCityPhoneText:: ; marcelnote - new
+	text "A pay phone?"
+
+	para "It doesn't seem"
+	line "to be working..."
+	done
+
 _VermilionCityCooltrainerFText::
 	text "The S.S.ANNE party"
 	line "was amazing!"

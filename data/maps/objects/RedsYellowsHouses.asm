@@ -23,6 +23,7 @@ RedsYellowsHouses_Object:
 
 	def_bg_events
 	bg_event  3,  1, TEXT_REDSHOUSE1F_TV
+	bg_event  7,  6, TEXT_REDSHOUSE1F_PHONE         ; marcelnote - new
 	bg_event 17,  5, TEXT_REDSHOUSE2F_SNES          ; marcelnote - moved from hidden objects
 	bg_event 31,  1, TEXT_YELLOWSHOUSE1F_TV         ; marcelnote - new for Yellow's house
 	bg_event 44,  1, TEXT_YELLOWSHOUSE2F_GAMEBOY    ; marcelnote - new for Yellow's bedroom

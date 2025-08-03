@@ -163,6 +163,7 @@ VermilionCity_TextPointers:
 	dw_const VermilionCityPokemonFanClubSignText, TEXT_VERMILIONCITY_POKEMON_FAN_CLUB_SIGN
 	dw_const VermilionCityGymSignText,            TEXT_VERMILIONCITY_GYM_SIGN
 	dw_const VermilionCityHarborSignText,         TEXT_VERMILIONCITY_HARBOR_SIGN
+	dw_const VermilionCityPhoneText,              TEXT_VERMILIONCITY_PHONE; marcelnote - new
 
 VermilionCityBeautyText:
 	text_far _VermilionCityBeautyText
@@ -275,6 +276,10 @@ VermilionCityGymSignText:
 
 VermilionCityHarborSignText:
 	text_far _VermilionCityHarborSignText
+	text_end
+
+VermilionCityPhoneText: ; marcelnote - new
+	text_far _VermilionCityPhoneText
 	text_end
 
 VermilionCitySailor3Text: ; marcelnote - new for ferry

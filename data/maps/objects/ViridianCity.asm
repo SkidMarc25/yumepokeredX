@@ -25,6 +25,7 @@ ViridianCity_Object:
 	bg_event 30, 19, TEXT_VIRIDIANCITY_MART_SIGN
 	bg_event 24, 25, TEXT_VIRIDIANCITY_POKECENTER_SIGN
 	bg_event 27,  7, TEXT_VIRIDIANCITY_GYM_SIGN
+	bg_event 26, 25, TEXT_VIRIDIANCITY_PHONE ; marcelnote - new
 
 	def_object_events
 	object_event 13, 20, SPRITE_YOUNGSTER, WALK, ANY_DIR, TEXT_VIRIDIANCITY_YOUNGSTER1

@@ -37,6 +37,14 @@ _RedsHouse1FTVWrongSideText::
 	text "Oops, wrong side."
 	done
 
+_RedsHouse1FPhoneText:: ; marcelnote - new
+	text "The phone is"
+	line "silent."
+
+	para "I should call"
+	line "home more often."
+	done
+
 _RedsHouse2FSNESText:: ; marcelnote - moved from hidden_objects
 	text "<PLAYER> is"
 	line "playing the SNES!"

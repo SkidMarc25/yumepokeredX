@@ -91,6 +91,7 @@ MandarinIsland_TextPointers:
 	dw_const MandarinIslandSurfShopSignText,   TEXT_MANDARINISLAND_SURFSHOP_SIGN
 	dw_const MandarinIslandSilphCoSignText,    TEXT_MANDARINISLAND_SILPH_CO_SIGN
 	dw_const MandarinIslandHotelSignText,      TEXT_MANDARINISLAND_HOTEL_SIGN
+	dw_const MandarinIslandPhoneText,          TEXT_MANDARINISLAND_PHONE
 
 
 MandarinIslandFisherText:
@@ -139,6 +140,10 @@ MandarinIslandSilphCoSignText:
 
 MandarinIslandHotelSignText:
 	text_far _MandarinIslandHotelSignText
+	text_end
+
+MandarinIslandPhoneText:
+	text_far _MandarinIslandPhoneText
 	text_end
 
 MandarinIslandSailorFerriesText:

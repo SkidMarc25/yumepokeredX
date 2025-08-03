@@ -19,6 +19,7 @@ CeladonMart1F2F3F_TextPointers:
 	; background events
 	dw_const CeladonMart1FDirectorySignText,    TEXT_CELADONMART1F_DIRECTORY_SIGN
 	dw_const CeladonMart1FCurrentFloorSignText, TEXT_CELADONMART1F_CURRENT_FLOOR_SIGN
+	dw_const CeladonMart1FPhoneText,            TEXT_CELADONMART1F_PHONE ; marcelnote - new
 	dw_const CeladonMart2FCurrentFloorSignText, TEXT_CELADONMART2F_CURRENT_FLOOR_SIGN
 	dw_const CeladonMart3FSNESText,             TEXT_CELADONMART3F_SNES1
 	dw_const CeladonMart3FRPGText,              TEXT_CELADONMART3F_RPG
@@ -43,6 +44,10 @@ CeladonMart1FDirectorySignText:
 
 CeladonMart1FCurrentFloorSignText:
 	text_far _CeladonMart1FCurrentFloorSignText
+	text_end
+
+CeladonMart1FPhoneText: ; marcelnote - new
+	text_far _CeladonMart1FPhoneText
 	text_end
 
 CeladonMart2FMiddleAgedManText:

@@ -33,6 +33,7 @@ CeruleanCity_Object:
 	bg_event 20, 17, TEXT_CERULEANCITY_POKECENTER_SIGN
 	bg_event 11, 25, TEXT_CERULEANCITY_BIKESHOP_SIGN
 	bg_event 27, 21, TEXT_CERULEANCITY_GYM_SIGN
+	bg_event  9, 25, TEXT_CERULEANCITY_PHONE ; marcelnote - new
 
 	def_object_events
 	object_event 20,  2, SPRITE_BLUE, STAY, DOWN, TEXT_CERULEANCITY_RIVAL

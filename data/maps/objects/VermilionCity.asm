@@ -33,6 +33,7 @@ VermilionCity_Object:
 	bg_event  7, 13, TEXT_VERMILIONCITY_POKEMON_FAN_CLUB_SIGN
 	bg_event  7, 19, TEXT_VERMILIONCITY_GYM_SIGN
 	bg_event 29, 15, TEXT_VERMILIONCITY_HARBOR_SIGN
+	bg_event 26, 13, TEXT_VERMILIONCITY_PHONE ; marcelnote - new
 
 	def_object_events
 	object_event 19,  7, SPRITE_BEAUTY, WALK, LEFT_RIGHT, TEXT_VERMILIONCITY_BEAUTY

@@ -141,6 +141,7 @@ ViridianCity_TextPointers:
 	dw_const MartSignText,                                   TEXT_VIRIDIANCITY_MART_SIGN
 	dw_const PokeCenterSignText,                             TEXT_VIRIDIANCITY_POKECENTER_SIGN
 	dw_const ViridianCityGymSignText,                        TEXT_VIRIDIANCITY_GYM_SIGN
+	dw_const ViridianCityPhoneText,                          TEXT_VIRIDIANCITY_PHONE ; marcelnote - new
 	dw_const ViridianCityGymLockedText,                      TEXT_VIRIDIANCITY_GYM_LOCKED
 	dw_const ViridianCityOldManYouNeedToWeakenTheTargetText, TEXT_VIRIDIANCITY_OLD_MAN_YOU_NEED_TO_WEAKEN_THE_TARGET
 
@@ -317,6 +318,10 @@ ViridianCityTrainerTips3Text: ; marcelnote - new
 
 ViridianCityGymSignText:
 	text_far _ViridianCityGymSignText
+	text_end
+
+ViridianCityPhoneText: ; marcelnote - new
+	text_far _ViridianCityPhoneText
 	text_end
 
 ViridianCityGymLockedText:

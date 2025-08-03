@@ -125,3 +125,10 @@ _MandarinIslandSilphCoSignText::
 _MandarinIslandHotelSignText::
 	text "MANDARIN HOTEL"
 	done
+
+_MandarinIslandPhoneText::
+	text "A pay phone?"
+
+	para "It doesn't seem"
+	line "to be working..."
+	done
