@@ -70,7 +70,7 @@ Loosely inspired by the anime, manga, and later Pokémon generations, Yume featu
 - New secrets in the Cinnabar Mansion could lead you to meet the Mythical Pokémon, Mew.
 - Plenty of extra dialogue woven naturally into old and new locations.
 
-**Visual updates**
+**Visuals**
 - Several maps have updated graphics and new animations.
 - Gym leaders have their own sprites.
 - New player sprites when surfing or running.
