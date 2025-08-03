@@ -113,6 +113,35 @@ IF DEF(_DEBUG)
 	ld a, 15
 	ld [hl], a
 
+	; set Exeggutor Stat Exp ; marcelnote - added
+	ld hl, wPartyMon1HPExp
+	ld a, $ff ; high byte
+	ld [hli], a
+	ld a, $ff ; low byte
+	ld [hli], a
+	; Attack
+	ld a, $ff ; high byte
+	ld [hli], a
+	ld a, $fe ; low byte
+	ld [hli], a
+	; Defense
+	ld a, $7f ; high byte
+	ld [hli], a
+	ld a, $ff ; low byte
+	ld [hli], a
+	; Speed
+	ld a, $3f ; high byte
+	ld [hli], a
+	ld a, $ff ; low byte
+	ld [hli], a
+	; Special
+	ld a, $10 ; high byte
+	ld [hli], a
+	ld a, $00 ; low byte
+	ld [hli], a
+
+	SetEvent EVENT_PASSED_SENIOR_TEST
+
 	; Get some debug items.
 	ld hl, wNumBagItems
 	ld de, DebugNewGameItemsList

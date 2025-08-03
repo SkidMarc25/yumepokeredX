@@ -17,6 +17,7 @@ StatusScreen:
 	call GBPalWhiteOutWithDelay3
 	call ClearScreen
 	call UpdateSprites
+	call LoadStatExpTilePatterns
 
 	call LoadMonData
 	ld a, [wMonDataLocation]
@@ -564,7 +565,17 @@ StatsText:
 
 
 SwitchToStats:
-	call ClearStatsLines
+	call ClearHPandStatsLines
+	hlcoord 11, 4
+	ld de, wLoadedMonHP
+	lb bc, 2, 3
+	call PrintNumber
+	ld a, "/"
+	ld [hli], a
+	ld de, wLoadedMonMaxHP
+	lb bc, 2, 3
+	call PrintNumber
+	hlcoord 4, 10
 	call PrintStatsBox.PrintStats
 	ld de, StatusScreenStatsText ; "STATS"
 	call PlaceStatsDVsOrStatExpText
@@ -573,6 +584,7 @@ SwitchToStats:
 
 SwitchToDVs: ; we'll use wTempByteValue to store DVs
 	call ClearStatsLines
+	hlcoord 4, 10
 	lb bc, 1, 5 ; for PrintNumber, b = 1 byte and c = 5 digits
 
 	ld de, wTempByteValue
@@ -607,37 +619,105 @@ SwitchToDVs: ; we'll use wTempByteValue to store DVs
 
 
 SwitchToStatExp:
-	call ClearStatsLines
-	lb bc, 2, 5 ; for PrintNumber, b = 2 byte and c = 5 digits
-	ld de, wLoadedMonAttackExp
-	call PrintStat
-	ld de, wLoadedMonDefenseExp
-	call PrintStat
-	ld de, wLoadedMonSpeedExp
-	call PrintStat
-	ld de, wLoadedMonSpecialExp
-	call PrintNumber
+	call ClearHPandStatsLines
+;	hlcoord 5, 10 ; code to print numbers instead
+;	lb bc, 2, 5 ; for PrintNumber, b = 2 byte and c = 5 digits
+;	ld de, wLoadedMonAttackExp
+;	call PrintStat
+	hlcoord 12, 4
+	ld de, wLoadedMonHPExp + 1 ; low byte
+	call PrintStatBar
+	hlcoord 3, 10
+	ld de, wLoadedMonAttackExp + 1
+	call PrintStatBar
+	ld de, wLoadedMonDefenseExp + 1
+	call PrintStatBar
+	ld de, wLoadedMonSpeedExp + 1
+	call PrintStatBar
+	ld de, wLoadedMonSpecialExp + 1
+	call PrintStatBar
 
 	ld de, StatusScreenStatExpText ; "STAT.EXP"
 	call PlaceStatsDVsOrStatExpText
 	jp StatusScreenStatsPage.waitButtonPress
 
 
-ClearStatsLines:
-	hlcoord 4, 10 ; first number
-	push hl
-	ld bc, 2*SCREEN_WIDTH - 3
-	ld e, 5
-	ld a, " "
-.loop
+PrintStatBar:
+	ld c, 0 ; extra pixel to handle full bar case
+	ld a, [de] ; low byte of stat
+	inc a      ; is low byte full?
+	dec de     ; de -> high byte (flags unaffected)
+	ld a, [de] ; high byte of stat
+	jr nz, .notFull
+	cp $ff     ; is high byte full?
+	jr nz, .notFull
+	inc c      ; if full stat, we'll add 1 pixel
+.notFull
+	srl a
+	srl a
+	srl a ; a = stat exp (0-31)
+	add c ; when stat is full, add last pixel
+	ld b, 4 ; b = number of tiles per bar
+	ld c, a ; c = length of bar in pixels
+	ld a, $40 ; left bar tip
 	ld [hli], a
+.loopFullTile
+	ld a, c
+	sub 8
+	jr c, .partialTile
+	ld c, a
+	ld a, $49  ; full tile
 	ld [hli], a
+	dec b
+	jr nz, .loopFullTile
+	jr .finish
+.partialTile
+	add 8 + $41 ; $41 = empty, $42 = 1px, etc
 	ld [hli], a
+	dec b
+	jr z, .finish
+	ld a, $41
+.loopEmptyTile
+	ld [hli], a
+	dec b
+	jr nz, .loopEmptyTile
+.finish
+	ld a, $4a ; right tip
 	ld [hl], a
+	ld de, SCREEN_WIDTH * 2 - 5 ; line offset between bars
+	add hl, de ; move hl to next bar start
+	ret
+
+LoadStatExpTilePatterns:
+	ld de, StatExpBarGraphics
+	ld hl, vChars2 tile $40
+	lb bc, BANK(StatExpBarGraphics), (StatExpBarGraphicsEnd - StatExpBarGraphics) / $10
+	jp CopyVideoData
+
+
+ClearHPandStatsLines:
+	hlcoord 11, 4 ; first HP stats bar tile
+	ld d, 7 ; number of tiles
+	ld a, " "
+.clearHP
+	ld [hli], a
+	dec d
+	jr nz, .clearHP
+	; fallthrough
+ClearStatsLines:
+	hlcoord 3, 10 ; first tile
+	ld bc, 2*SCREEN_WIDTH - 6
+	ld e, 4 ; number of stats
+	ld a, " "
+.loopStats
+	ld d, 6 ; number of tiles
+.loopTiles
+	ld [hli], a
+	dec d
+	jr nz, .loopTiles
 	add hl, bc
 	dec e
-	jr nz, .loop
-	pop hl
+	jr nz, .loopStats
 	ret
 
 

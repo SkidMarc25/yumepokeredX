@@ -29,6 +29,9 @@ PokedexTileGraphicsEnd:
 StatsBarGraphics: INCBIN "gfx/pokedex/stats_bar.2bpp" ; marcelnote - new
 StatsBarGraphicsEnd:
 
+StatExpBarGraphics: INCBIN "gfx/status_screen/stat_exp_bar.2bpp" ; marcelnote - new
+StatExpBarGraphicsEnd:
+
 WorldMapTileGraphics: INCBIN "gfx/town_map/town_map.2bpp"
 WorldMapTileGraphicsEnd:
 
