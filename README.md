@@ -91,6 +91,7 @@ Loosely inspired by the anime, manga, and later Pokémon generations, Yume featu
 - Move deleter and Move reminder in Fuchsia.
 - Experience bar in battle.
 - Improved move info box in battle.
+- Pressing B during wild battles now shortcuts directly to 'Run' on the main menu.
 - Turn Exp.All on and off from the bag.
 - Faster dialogue to buy coins at the Game Corner.
 - New nurse room in the SS.Anne.
