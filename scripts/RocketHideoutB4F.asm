@@ -181,22 +181,15 @@ RocketHideoutB4FRocket3BattleText:
 	text_far _RocketHideoutB4FRocket3BattleText
 	text_end
 
-RocketHideoutB4FRocket3EndBattleText:
+RocketHideoutB4FRocket3EndBattleText: ; marcelnote - adapted from pokeyellow
 	text_far _RocketHideoutB4FRocket3EndBattleText
-	text_end
-
-RocketHideoutB4FRocket3AfterBattleText:
 	text_asm
-	ld hl, .Text
-	call PrintText
-	CheckAndSetEvent EVENT_ROCKET_DROPPED_LIFT_KEY
-	jr nz, .done
+	SetEvent EVENT_ROCKET_DROPPED_LIFT_KEY
 	ld a, HS_ROCKET_HIDEOUT_B4F_ITEM_5
 	ld [wMissableObjectIndex], a
 	predef ShowObject
-.done
 	rst TextScriptEnd ; PureRGB - rst TextScriptEnd
 
-.Text:
+RocketHideoutB4FRocket3AfterBattleText: ; marcelnote - now drops key in EndBattle text
 	text_far _RocketHideoutB4FRocket3AfterBattleText
 	text_end
