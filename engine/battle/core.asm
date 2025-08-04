@@ -2458,6 +2458,8 @@ PartyMenuOrRockOrRun:
 	call ClearSprites
 ; display the status screen
 	predef StatusScreen
+; reload player mon backsprite ; marcelnote - to add once uncompression routine will be optimized
+;	predef LoadMonBackPic      ;              in order to move back stat exp bar onto back sprite
 ; now we need to reload the enemy mon pic
 	ld a, 1                ; marcelnote - these two lines fix a visual bug
 	ldh [hWhoseTurn], a    ;              with Minimize and Substitute (pokered Wiki)
