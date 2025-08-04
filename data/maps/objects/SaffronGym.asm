@@ -35,7 +35,7 @@ SaffronGym_Object:
 	warp_event  9,  5, SAFFRON_GYM, 8
 	warp_event 11,  5, SAFFRON_GYM, 13
 	warp_event 11, 11, SAFFRON_GYM, 5
-	warp_event 11, 15, SAFFRON_GYM, 32
+	warp_event 11, 15, SAFFRON_GYM, 32 ; 20 ; lobby
 	warp_event 15,  3, SAFFRON_GYM, 25
 	warp_event 19,  3, SAFFRON_GYM, 29
 	warp_event 15,  5, SAFFRON_GYM, 3
