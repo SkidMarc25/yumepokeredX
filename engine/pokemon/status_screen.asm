@@ -94,14 +94,14 @@ StatusScreenStatsPage:
 	call PlaceString ; "OK"
 .StatusWritten
 
-	hlcoord 11, 9
+	hlcoord 10, 9
 	ld de, StatusScreenTypeText
 	call PlaceString ; "TYPE/"
 
-	hlcoord 12, 10
+	hlcoord 11, 10
 	predef PrintMonType ; Pokémon type
 
-	hlcoord 11, 12
+	hlcoord 10, 12
 	ld de, StatusScreenOTText
 	call PlaceString ; "OT/" and "IDNo."
 
@@ -109,16 +109,20 @@ StatusScreenStatsPage:
 	call .GetStringPointer
 	ld d, h
 	ld e, l
-	hlcoord 12, 13
+	hlcoord 11, 13
 	call PlaceString ; Original Trainer
 
-	hlcoord 14, 14
+	hlcoord 13, 14
 	ld de, wLoadedMonOTID
 	lb bc, LEADING_ZEROES | 2, 5
 	call PrintNumber ; ID Number
 
 	CheckEvent EVENT_PASSED_SENIOR_TEST ; only visible after passing Senior test at Pokémon Academy
 	call nz, PlaceInfoStartAndStatsGraphics ; for switching between stats displayed
+
+	hlcoord 19, 9
+	lb bc, 8, 7
+	call DrawLineBox ; Draws the box around name, HP and status
 
 	ld d, $0 ; d=0 for status screen, d=1 for level up
 	call PrintStatsBox
@@ -152,7 +156,7 @@ StatusScreenStatsPage:
 	jr z, .waitButtonPress ; only visible after passing Senior test at Pokémon Academy
 	ld a, SFX_TINK
 	call PlaySound
-	hlcoord 16, 17 ; fifth letter of current text
+	hlcoord 15, 16 ; fifth letter of current text
 	ld a, [hl]
 	cp "S" ; text currently saying "STATS"?
 	jp z, SwitchToDVs ; if yes, switch to DVs
@@ -722,11 +726,11 @@ ClearStatsLines:
 
 
 PlaceInfoStartAndStatsGraphics:
-	hlcoord 11, 16
+	hlcoord 10, 15
 	ld de, StatusScreenInfoText
 	call PlaceString ; "INFO/"
 
-	hlcoord 16, 16
+	hlcoord 15, 15
 	ld a, "<ST>" ; left of [START▶] button
 	ld b, 3 ; 3 tiles long
 .loop
@@ -739,7 +743,7 @@ PlaceInfoStartAndStatsGraphics:
 	; fallthrough
 
 PlaceStatsDVsOrStatExpText:
-	hlcoord 12, 17
+	hlcoord 11, 16
 	jp PlaceString ; "STATS" or "DVS" or "STAT.EXP"
 
 
