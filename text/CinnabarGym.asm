@@ -68,41 +68,41 @@ _CinnabarGymBlaineTM38NoRoomText::
 	line "gift!"
 	done
 
-_CinnabarGymSuperNerd1BattleText::
+_CinnabarGymSuperNerd1BattleText:: ; this
+	text "I was a thief, but"
+	line "I became straight"
+	cont "as a trainer!"
+	done
+
+_CinnabarGymSuperNerd1EndBattleText::
+	text "I"
+	line "surrender!"
+	prompt
+
+_CinnabarGymSuperNerd1AfterBattleText::
+	text "I can't help"
+	line "stealing other"
+	cont "people's #MON!"
+	done
+
+_CinnabarGymSuperNerd2BattleText:: ; this
 	text "Do you know how"
 	line "hot #MON fire"
 	cont "breath can get?"
 	done
 
-_CinnabarGymSuperNerd1EndBattleText::
+_CinnabarGymSuperNerd2EndBattleText::
 	text "Yow!"
 	line "Hot, hot, hot!"
 	prompt
 
-_CinnabarGymSuperNerd1AfterBattleText::
+_CinnabarGymSuperNerd2AfterBattleText::
 	text "Fire, or to be"
 	line "more precise,"
 	cont "combustion..."
 
 	para "Blah, blah, blah,"
 	line "blah..."
-	done
-
-_CinnabarGymSuperNerd2BattleText::
-	text "I was a thief, but"
-	line "I became straight"
-	cont "as a trainer!"
-	done
-
-_CinnabarGymSuperNerd2EndBattleText::
-	text "I"
-	line "surrender!"
-	prompt
-
-_CinnabarGymSuperNerd2AfterBattleText::
-	text "I can't help"
-	line "stealing other"
-	cont "people's #MON!"
 	done
 
 _CinnabarGymSuperNerd3BattleText::
