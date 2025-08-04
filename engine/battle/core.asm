@@ -1467,6 +1467,7 @@ EnemySendOutFirstMon:
 .next7
 	call GBPalWhiteOut
 	call LoadHudTilePatterns
+	callfar CalcAndLoadExpBarDynamicTile ; marcelnote - new for ExpBar
 	call LoadScreenTilesFromBuffer1
 .sendEnemyMon
 	call ClearSprites
@@ -2500,6 +2501,7 @@ PartyMenuOrRockOrRun:
 	call GBPalWhiteOut
 	call ClearSprites
 	call LoadHudTilePatterns
+	callfar CalcAndLoadExpBarDynamicTile ; marcelnote - new for ExpBar
 	call LoadScreenTilesFromBuffer1
 	call RunDefaultPaletteCommand
 	call GBPalNormal

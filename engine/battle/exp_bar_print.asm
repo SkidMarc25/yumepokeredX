@@ -107,9 +107,7 @@ IsCurrentMonBattleMon:
 
 
 PrintEXPBar:
-	call CalcEXPBarPixelLength
-	ldh a, [hQuotient + 3]     ; pixel length
-	call LoadExpBarDynamicTile ; load tile with a mod 8 pixels long
+	call CalcAndLoadExpBarDynamicTile
 
 	ldh a, [hQuotient + 3] ; pixel length
 	ld [wEXPBarPixelLength], a
@@ -321,6 +319,12 @@ LoadExpBarDynamicTile:
 	ld hl, vChars2 tile $75 ; "<EXP_BAR_PARTIAL>"
 	lb bc, BANK(EXPBarGraphics), 1 ; 1 tile
 	jp CopyVideoData
+
+
+CalcAndLoadExpBarDynamicTile: ; needed for jpfar
+	call CalcEXPBarPixelLength
+	ldh a, [hQuotient + 3]    ; pixel length
+	jp LoadExpBarDynamicTile
 
 
 EXPBarGraphics::  INCBIN "gfx/battle/exp_bar.2bpp"
