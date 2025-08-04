@@ -77,7 +77,22 @@ MandarinHotel2FGentlemanEndBattleText:
 	text_end
 
 MandarinHotel2FGentlemanAfterBattleText:
-	text_far _MandarinHotel2FGentlemanAfterBattleText
+	text_asm
+	ld a, [wStatusFlags4]
+	bit BIT_IS_GIRL, a
+	ld hl, .GirlText
+	jr nz, .print_text
+	ld hl, .BoyText
+.print_text
+	call PrintText
+	rst TextScriptEnd ; PureRGB - rst TextScriptEnd
+
+.GirlText
+	text_far _MandarinHotel2FGentlemanAfterBattleGirlText
+	text_end
+
+.BoyText
+	text_far _MandarinHotel2FGentlemanAfterBattleBoyText
 	text_end
 
 MandarinHotel2FSilphWorkerMText:

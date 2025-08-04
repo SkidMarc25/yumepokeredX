@@ -12,8 +12,8 @@ _MandarinHotel1FWaiterText::
 	done
 
 _MandarinHotel1FWaiter2Text::
-	text "Beware, some"
-	line "guests here are"
+	text "Beware, some of"
+	line "our guests are"
 	cont "eager for a good"
 	cont "battle!"
 	done
@@ -39,11 +39,18 @@ _MandarinHotel2FGentlemanEndBattleText::
 	line "my..."
 	prompt
 
-_MandarinHotel2FGentlemanAfterBattleText::
+_MandarinHotel2FGentlemanAfterBattleBoyText::
 	text "Your skills are"
 	line "sharper than"
 	cont "your attire,"
 	cont "young man!"
+	done
+
+_MandarinHotel2FGentlemanAfterBattleGirlText::
+	text "Your skills are"
+	line "sharper than"
+	cont "your attire,"
+	cont "young lady!"
 	done
 
 _MandarinHotel2FSilphWorkerMText::
@@ -57,11 +64,11 @@ _MandarinHotel2FSilphWorkerMText::
 	done
 
 _MandarinHotel2FRoom11SignText::
-	text "Room 11"
+	text "ROOM 11"
 	done
 
 _MandarinHotel2FRoom12SignText::
-	text "Room 12"
+	text "ROOM 12"
 	done
 
 ; 3F
@@ -109,11 +116,11 @@ _MandarinHotel3FLittleGirlText::
 	done
 
 _MandarinHotel3FRoom21SignText::
-	text "Room 21"
+	text "ROOM 21"
 	done
 
 _MandarinHotel3FRoom22SignText::
-	text "Room 22"
+	text "ROOM 22"
 	done
 
 ; 4F
@@ -147,5 +154,5 @@ _MandarinHotel4FRaichuText::
 	done
 
 _MandarinHotel4FSuiteSignText::
-	text "Suite"
+	text "SUITE"
 	done

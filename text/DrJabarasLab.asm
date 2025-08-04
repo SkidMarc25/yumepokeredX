@@ -121,7 +121,7 @@ _DrJabarasLabJabaraFinalText::
 
 	para "MEW was always"
 	line "fascinated by"
-	cont "FUJI's POKE FLUTE."
+	cont "FUJI's # FLUTE."
 	cont "Perhaps if you"
 	cont "play yours in"
 	cont "the right spot,"
