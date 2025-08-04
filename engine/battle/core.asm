@@ -1419,20 +1419,20 @@ EnemySendOutFirstMon:
 	ld [wCurrentMenuItem], a
 	ld a, [wFirstMonsNotOutYet]
 	dec a
-	jr z, .next4
+	jr z, .sendEnemyMon
 	ld a, [wPartyCount]
 	dec a
-	jr z, .next4
+	jr z, .sendEnemyMon
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
-	jr z, .next4
+	jr z, .sendEnemyMon
 	ld a, [wOptions]
 	bit BIT_BATTLE_SET, a
-	jr nz, .next4
+	jr nz, .sendEnemyMon
 ; marcelnote - SET mode in Battle hall
 	ld a, [wTrainerClass]
 	cp RED
-	jr nc, .next4
+	jr nc, .sendEnemyMon
 	ld hl, TrainerAboutToUseText
 	call PrintText
 	hlcoord 0, 7
@@ -1442,7 +1442,7 @@ EnemySendOutFirstMon:
 	call DisplayTextBoxID
 	ld a, [wCurrentMenuItem]
 	and a
-	jr nz, .next4
+	jr nz, .sendEnemyMon
 	ld a, BATTLE_PARTY_MENU
 	ld [wPartyMenuTypeOrMessageID], a
 	call DisplayPartyMenu
@@ -1468,7 +1468,7 @@ EnemySendOutFirstMon:
 	call GBPalWhiteOut
 	call LoadHudTilePatterns
 	call LoadScreenTilesFromBuffer1
-.next4
+.sendEnemyMon
 	call ClearSprites
 	hlcoord 0, 0
 	lb bc, 4, 11
@@ -2503,7 +2503,7 @@ PartyMenuOrRockOrRun:
 	call LoadScreenTilesFromBuffer1
 	call RunDefaultPaletteCommand
 	call GBPalNormal
-; fall through to SwitchPlayerMon
+	; fallthrough
 
 SwitchPlayerMon:
 	callfar RetreatMon
@@ -6566,6 +6566,7 @@ ScrollTrainerPicAfterBattle:
 
 LoadHudAndHpBarAndStatusTilePatterns:
 	call LoadHpBarAndStatusTilePatterns
+	; fallthrough
 
 LoadHudTilePatterns:
 	ldh a, [rLCDC]
