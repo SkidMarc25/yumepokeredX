@@ -10,6 +10,7 @@ IF DEF(_RED)
 	db 31, NIDORINA
 	db 30, PARASECT
 	db 23, SCYTHER
+	db 23, PINSIR ; marcelnote - added
 ENDC
 IF (DEF(_BLUE) || DEF(_GREEN)) ; marcelnote: Green has same encounters as Blue for now
 	db 22, NIDORAN_F
@@ -21,8 +22,8 @@ IF (DEF(_BLUE) || DEF(_GREEN)) ; marcelnote: Green has same encounters as Blue f
 	db 31, NIDORINO
 	db 30, PARASECT
 	db 23, PINSIR
+	db 23, SCYTHER ; marcelnote - added
 ENDC
-	db 22, VENONAT ; marcelnote - added
 	db 23, CHANSEY
 	end_grass_wildmons
 

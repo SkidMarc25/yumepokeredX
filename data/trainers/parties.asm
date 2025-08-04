@@ -98,11 +98,11 @@ BugCatcherData:
 	db 11, CATERPIE, METAPOD, 0
 ; Mt. Moon 1F
 	db 11, WEEDLE, KAKUNA, 0
-	db 10, CATERPIE, METAPOD, CATERPIE, 0
+	db 10, CATERPIE, METAPOD, PARAS, 0 ; marcelnote - replaced CATERPIE with PARAS
 ; Route 24
 	db 14, CATERPIE, WEEDLE, 0
 ; Route 6
-	db 16, WEEDLE, CATERPIE, WEEDLE, 0
+	db 16, WEEDLE, CATERPIE, VENONAT, 0 ; marcelnote - replaced WEEDLE with VENONAT
 	db 20, BUTTERFREE, 0
 ; Unused
 	db 18, METAPOD, CATERPIE, VENONAT, 0
@@ -117,7 +117,7 @@ BugCatcherData:
 
 LassData:
 ; Route 3
-	db 9, PIDGEY, PIDGEY, 0
+	db 9, PIDGEY, VULPIX, 0 ; marcelnote - replaced PIDGEY with VULPIX
 	db 10, RATTATA, NIDORAN_M, 0
 	db 14, JIGGLYPUFF, 0
 ; Route 4
@@ -126,7 +126,7 @@ LassData:
 	db 11, ODDISH, BELLSPROUT, 0
 	db 14, CLEFAIRY, 0
 ; Route 24
-	db 16, PIDGEY, NIDORAN_F, 0
+	db 16, NIDORAN_F, POLIWAG, 0 ; marcelnote - was PIDGEY, NIDORAN_F
 	db 14, PIDGEY, NIDORAN_F, 0
 ; Route 25
 	db 15, NIDORAN_M, NIDORAN_F, 0
@@ -183,7 +183,7 @@ JrTrainerMData:
 
 JrTrainerFData:
 ; Cerulean Gym
-	db 19, POLIWAG, 0 ; marcelnote - changed from GOLDEEN since Misty now has it
+	db 19, SEEL, 0 ; marcelnote - changed from GOLDEEN since Misty now has it
 ; Route 6
 	db 16, RATTATA, PIKACHU, 0
 	db 16, PIDGEY, PIDGEY, PIDGEY, 0
