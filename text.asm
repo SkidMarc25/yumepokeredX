@@ -79,7 +79,6 @@ INCLUDE "text/Daycare.asm"
 
 SECTION "Text 4", ROMX
 
-INCLUDE "text/Daycare_2.asm"
 INCLUDE "text/UndergroundPathRoute6.asm"
 INCLUDE "text/UndergroundPathRoute7.asm"
 INCLUDE "text/UndergroundPathRoute8.asm"

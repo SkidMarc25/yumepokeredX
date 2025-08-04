@@ -36,9 +36,9 @@ DaycareGentlemanText:
 	pop af
 	ld hl, .AllRightThenText
 	jp c, .print_text
-	callfar KnowsHMMove
-	ld hl, .CantAcceptMonWithHMText
-	jp c, .print_text
+;	callfar KnowsHMMove ; marcelnote - daycare can erase HM moves
+;	ld hl, .CantAcceptMonWithHMText
+;	jp c, .print_text
 	xor a
 	ld [wPartyAndBillsPCSavedMenuItem], a
 	ld a, [wWhichPokemon]
@@ -257,9 +257,9 @@ DaycareGentlemanText:
 	text_far _DaycareGentlemanOnlyHaveOneMonText
 	text_end
 
-.CantAcceptMonWithHMText:
-	text_far _DaycareGentlemanCantAcceptMonWithHMText
-	text_end
+;.CantAcceptMonWithHMText: ; marcelnote - daycare can erase HM moves
+;	text_far _DaycareGentlemanCantAcceptMonWithHMText
+;	text_end
 
 .HeresYourMonText:
 	text_far _DaycareGentlemanHeresYourMonText
