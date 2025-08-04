@@ -107,7 +107,7 @@ CinnabarGymQuiz_AskQuestion:
 	ld hl, CinnabarGymQuizIncorrectText
 	call PrintText
 	ldh a, [hGymGateIndex]
-	add $2
+	add $1 ; marcelnote - adjusted from $2 to accommodate new quiz question
 	AdjustEventBit EVENT_BEAT_CINNABAR_GYM_TRAINER_0, 2
 	ld c, a
 	ld b, FLAG_TEST
