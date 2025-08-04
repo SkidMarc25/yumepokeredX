@@ -31,7 +31,8 @@ DEF BIT_FONT_LOADED EQU 0
 
 ; wOptions
 DEF TEXT_DELAY_MASK EQU %11 ; marcelnote - changed from %111 = 7
-	const_def 4
+	const_def 4                ; 0-1 are for text delay
+	; marcelnote - bits 2-3 are free
 	const BIT_60_FPS           ; 4 ; marcelnote - new 60fps option
 	const BIT_UNITS_METRIC     ; 5 ; marcelnote - new metric / imperial option
 	const BIT_BATTLE_SET       ; 6
