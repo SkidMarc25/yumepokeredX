@@ -21,6 +21,7 @@ LavenderTown_Object:
 	bg_event  4,  5, TEXT_LAVENDERTOWN_POKECENTER_SIGN
 	bg_event  5,  9, TEXT_LAVENDERTOWN_POKEMON_HOUSE_SIGN
 	bg_event 17,  7, TEXT_LAVENDERTOWN_POKEMON_TOWER_SIGN
+	bg_event  0,  3, TEXT_LAVENDERTOWN_PHONE ; marcelnote - new
 
 	def_object_events
 	object_event 15,  9, SPRITE_LITTLE_GIRL, WALK, ANY_DIR, TEXT_LAVENDERTOWN_LITTLE_GIRL
