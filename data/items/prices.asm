@@ -27,7 +27,7 @@ ItemPrices::
 	bcd3 0     ; ITEM_19
 	bcd3 0     ; ITEM_1A
 	bcd3 0     ; ITEM_1B
-	bcd3 0     ; ITEM_1C
+	bcd3 0     ; POKE_BEEPER ; marcelnote - new for PokéBeeper
 	bcd3 550   ; ESCAPE_ROPE
 	bcd3 200   ; REPEL          ; marcelnote - changed from 350, 100/200 = .50 step per ¥
 	bcd3 0     ; OLD_AMBER

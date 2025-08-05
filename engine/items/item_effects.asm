@@ -44,7 +44,7 @@ ItemUsePtrTable:
 	dw UnusableItem      ; ITEM_19
 	dw UnusableItem      ; ITEM_1A
 	dw UnusableItem      ; ITEM_1B
-	dw UnusableItem      ; ITEM_1C
+	dw ItemUsePokeBeeper ; POKE_BEEPER ; marcelnote - new for PokéBeeper
 	dw ItemUseEscapeRope ; ESCAPE_ROPE
 	dw ItemUseRepel      ; REPEL
 	dw UnusableItem      ; OLD_AMBER
@@ -583,6 +583,10 @@ ItemUseBall:
 .sendToBox
 	call ClearSprites
 	call SendNewMonToBox
+	;;;;;;;;;; marcelnote - new for PokéBeeper
+	ld hl, wStatusFlags2
+	set BIT_POKE_BEEPER_ALERT, [hl]
+	;;;;;;;;;;
 	ld hl, ItemUseBallText07
 	CheckEvent EVENT_MET_BILL
 	jr nz, .printTransferredToPCText
@@ -1955,8 +1959,10 @@ FishingInit:
 	scf ; can't fish when surfing
 	ret
 
+
 ;ItemUseOaksParcel: ; marcelnote - put ItemUseNotYoursToUse directly
 ;	jp ItemUseNotYoursToUse
+
 
 ItemUseItemfinder:
 	ld a, [wIsInBattle]
@@ -1986,6 +1992,7 @@ ItemfinderFoundNothingText:
 	text_far _ItemfinderFoundNothingText
 	text_end
 
+
 ItemUseExpAll:    ; marcelnote - ExpAll can be activated/deactivated
 	ld a, [wIsInBattle]
 	and a
@@ -2007,6 +2014,31 @@ ItemUseExpAll:    ; marcelnote - ExpAll can be activated/deactivated
 .DeactivatedText:
 	text_far _ExpAllDeactivatedText
 	text_end
+
+
+ItemUsePokeBeeper: ; marcelnote - new for PokéBeeper
+	ld a, [wIsInBattle]
+	and a
+	jp nz, ItemUseNotTime
+	ld a, [wBoxCount]
+	cp MONS_PER_BOX
+	ld hl, .BoxIsFullText
+	jp z, PrintText
+	ld c, a
+	ld a, MONS_PER_BOX
+	sub c
+	ld [wStringBuffer], a
+	ld hl, .SpaceLeftText
+	jp PrintText
+
+.SpaceLeftText:
+	text_far _PokeBeeperSpaceLeftText
+	text_end
+
+.BoxIsFullText:
+	text_far _PokeBeeperBoxIsFullText
+	text_end
+
 
 ItemUsePPUp:
 	ld a, [wIsInBattle]
@@ -2344,6 +2376,7 @@ PrintItemUseTextAndRemoveItem:
 	ld a, SFX_HEAL_AILMENT
 	call PlaySound
 	call WaitForTextScrollButtonPress ; wait for button press
+	; fallthrough
 
 RemoveUsedItem:
 	ld hl, wNumBagItems

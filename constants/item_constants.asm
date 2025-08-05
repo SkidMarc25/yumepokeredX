@@ -34,7 +34,7 @@
 	const ITEM_19       ; $19 ; unused ; marcelnote - cleaned from SoulBadge
 	const ITEM_1A       ; $1A ; unused ; marcelnote - cleaned from MarshBadge
 	const ITEM_1B       ; $1B ; unused ; marcelnote - cleaned from VolcanoBadge
-	const ITEM_1C       ; $1C ; unused ; marcelnote - cleaned from EarthBadge
+	const POKE_BEEPER   ; $1C ; marcelnote - new for PokéBeeper, was EarthBadge
 	const ESCAPE_ROPE   ; $1D
 	const REPEL         ; $1E
 	const OLD_AMBER     ; $1F

@@ -375,10 +375,11 @@ INCLUDE "engine/overworld/elevator.asm"
 SECTION "bank1F", ROMX ; marcelnote - new
 
 INCLUDE "engine/battle/exp_bar_print.asm"
-INCLUDE "engine/menus/league_pc.asm" ; marcelnote - moved from SECTION "Itemfinder 2"
-INCLUDE "engine/overworld/use_another_repel.asm" ; marcelnote - copied from PureRGB
+INCLUDE "engine/menus/league_pc.asm"                  ; marcelnote - moved from SECTION "Itemfinder 2"
+INCLUDE "engine/overworld/use_another_repel.asm"      ; marcelnote - copied from PureRGB
 INCLUDE "engine/overworld/use_item_select_button.asm" ; marcelnote - adapted from PureRGB
-INCLUDE "engine/menus/draw_badges.asm" ; marcelnote - moved from bank3
+INCLUDE "engine/overworld/poke_beeper.asm"            ; marcelnote - new for PokéBeeper
+INCLUDE "engine/menus/draw_badges.asm"                ; marcelnote - moved from bank3
 
 
 SECTION "GFX engine", ROMX ; marcelnote - new

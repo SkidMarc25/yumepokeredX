@@ -286,6 +286,7 @@
 	const EVENT_BEAT_ROUTE_6_TRAINER_4
 	const EVENT_BEAT_ROUTE_6_TRAINER_5
 	const EVENT_BEAT_ROUTE_6_TRAINER_6 ; marcelnote - new trainer
+	const EVENT_GOT_POKE_BEEPER        ; marcelnote - new for PokéBeeper
 
 ; Route 8 events
 	const_next $430

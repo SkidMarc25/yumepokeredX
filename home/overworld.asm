@@ -61,6 +61,13 @@ OverworldLoopLessDelay::
 	ld a, [wStatusFlags6]
 	and (1 << BIT_FLY_WARP) | (1 << BIT_DUNGEON_WARP)
 	jp nz, HandleFlyWarpOrDungeonWarp
+	;;;;;;;;;; marcelnote - new for PokéBeeper
+	ld a, [wStatusFlags2]
+	bit BIT_POKE_BEEPER_ALERT, a
+	jr z, .noPokeBeeperAlert
+	callfar GetPokeBeeperAlert
+.noPokeBeeperAlert
+	;;;;;;;;;;
 	ld a, [wCurOpponent]
 	and a
 	jp nz, .newBattle

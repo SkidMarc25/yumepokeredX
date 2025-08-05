@@ -63,7 +63,7 @@ _AidesHouseMemoText:: ; marcelnote - new Pallet house
 	para "..."
 
 	para "Assist trainers at"
-	line "ROUTE 2,"
+	line "ROUTE 2, ROUTE 6," ; marcelnote - Route 6 for PokéBeeper
 	cont "ROUTE 11,"
-	cont "ROUTE 15."
+	cont "and ROUTE 15."
 	done

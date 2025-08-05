@@ -27,7 +27,7 @@ KeyItemFlags:
 	dbit TRUE  ; ITEM_19     ; marcelnote - cleaned badges
 	dbit TRUE  ; ITEM_1A     ; marcelnote - cleaned badges
 	dbit TRUE  ; ITEM_1B     ; marcelnote - cleaned badges
-	dbit TRUE  ; ITEM_1C     ; marcelnote - cleaned badges
+	dbit TRUE  ; POKE_BEEPER ; marcelnote - new for PokéBeeper
 	dbit FALSE ; ESCAPE_ROPE
 	dbit FALSE ; REPEL
 	dbit TRUE  ; OLD_AMBER

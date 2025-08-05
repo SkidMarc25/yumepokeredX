@@ -26,6 +26,29 @@ _RepelUseAnotherText:: ; marcelnote - added prompt to reuse repel
 	text "Use another?"
 	done
 
+_PokeBeeperAlertText:: ; marcelnote - new for PokéBeeper
+	text "A message on the"
+	line "# BEEPER!"
+
+	para "The BOX has space"
+	line "for just @"
+	text_decimal wStringBuffer, 1, 2
+	text " more"
+	cont "#MON."
+
+	para "Change it soon at"
+	line "a #MON CENTER!"
+	done
+
+_PokeBeeperAlertFullText:: ; marcelnote - new for PokéBeeper
+	text "A message on the"
+	line "# BEEPER."
+
+	para "The BOX is full!"
+	line "Better find a"
+	cont "PC fast!"
+	done
+
 _PokemartBuyingGreetingText::
 	text "Take your time."
 	done

@@ -137,6 +137,30 @@ _ExpAllDeactivatedText:: ; marcelnote - ExpAll can be activated/deactivated
 	line "off EXP.ALL."
 	prompt
 
+_PokeBeeperSpaceLeftText:: ; marcelnote - new for PokéBeeper
+	text "<PLAYER> checked"
+	line "the # BEEPER."
+
+	para "..."
+
+	para "The BOX has space"
+	line "for @"
+	text_decimal wStringBuffer, 1, 2
+	text " more"
+	cont "#MON."
+	prompt
+
+_PokeBeeperBoxIsFullText:: ; marcelnote - new for PokéBeeper
+	text "<PLAYER> checked"
+	line "the # BEEPER."
+
+	para "..."
+
+	para "The BOX is full!"
+	line "Better find a"
+	cont "PC fast!"
+	prompt
+
 _RaisePPWhichTechniqueText::
 	text "Raise PP of which"
 	line "technique?"

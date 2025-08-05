@@ -17,6 +17,7 @@ Route6Gate_Object:
 	def_bg_events
 
 	def_object_events
+	object_event 12,  2, SPRITE_SCIENTIST, STAY, RIGHT, TEXT_ROUTE6GATE_OAKS_AIDE                ; marcelnote - new for PokéBeeper
 	object_event 18,  2, SPRITE_MIDDLE_AGED_WOMAN, STAY, LEFT, TEXT_ROUTE6GATE_MIDDLE_AGED_WOMAN ; marcelnote - added 2nd floor
 	object_event 14,  3, SPRITE_YOUNGSTER, WALK, UP_DOWN, TEXT_ROUTE6GATE_YOUNGSTER              ; marcelnote - added 2nd floor
 	object_event  6,  2, SPRITE_GUARD, STAY, LEFT, TEXT_ROUTE6GATE_GUARD

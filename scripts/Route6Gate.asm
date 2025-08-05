@@ -66,11 +66,37 @@ Route6GateMovePlayerDownScript:
 
 Route6Gate_TextPointers:
 	def_text_pointers
+	dw_const Route6GateOaksAideText,           TEXT_ROUTE6GATE_OAKS_AIDE         ; marcelnote - new for PokéBeeper
 	dw_const Route6GateMiddleAgedWomanText,    TEXT_ROUTE6GATE_MIDDLE_AGED_WOMAN ; marcelnote - added 2nd floor
 	dw_const Route6GateYoungsterText,          TEXT_ROUTE6GATE_YOUNGSTER         ; marcelnote - added 2nd floor
 	dw_const SaffronGateGuardText,             TEXT_ROUTE6GATE_GUARD
 	dw_const SaffronGateGuardGeeImThirstyText, TEXT_ROUTE6GATE_GUARD_GEE_IM_THIRSTY
 	dw_const SaffronGateGuardGiveDrinkText,    TEXT_ROUTE6GATE_GUARD_GIVE_DRINK
+
+Route6GateOaksAideText: ; marcelnote - new for PokéBeeper
+	text_asm
+	CheckEvent EVENT_GOT_POKE_BEEPER
+	jr nz, .got_item
+	ld a, 20
+	ldh [hOaksAideRequirement], a
+	ld a, POKE_BEEPER
+	ldh [hOaksAideRewardItem], a
+	ld [wNamedObjectIndex], a
+	call GetItemName ; stores name in wNameBuffer
+	predef OaksAideScript
+	ldh a, [hOaksAideResult]
+	dec a ; OAKS_AIDE_GOT_ITEM?
+	jr nz, .no_item
+	SetEvent EVENT_GOT_POKE_BEEPER
+.got_item
+	ld hl, .PokeBeeperExplanationText
+	call PrintText
+.no_item
+	rst TextScriptEnd ; PureRGB - rst TextScriptEnd
+
+.PokeBeeperExplanationText:
+	text_far _Route6GateOaksAidePokeBeeperExplanationText
+	text_end
 
 Route6GateMiddleAgedWomanText: ; marcelnote - added 2nd floor
 	text_far _Route6GateMiddleAgedWomanText

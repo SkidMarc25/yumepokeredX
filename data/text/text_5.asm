@@ -115,13 +115,17 @@ _SentToBoxText::
 	text " on PC!"
 	done
 
-_BoxIsFullText::
-	text "There's no more"
-	line "room for #MON!"
+_BoxIsFullText:: ; marcelnote - shortened message
+;	text "There's no more" ; original text
+;	line "room for #MON!"
 
-	para "The #MON BOX"
-	line "is full and can't"
-	cont "accept any more!"
+;	para "The #MON BOX"
+;	line "is full and can't"
+;	cont "accept any more!"
+
+	text "The BOX is full,"
+	line "no more room for"
+	cont "#MON!"
 
 	para "Change the BOX at"
 	line "a #MON CENTER!"

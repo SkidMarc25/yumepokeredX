@@ -27,7 +27,7 @@ ItemNames::
 	li "ITEM19"  ; marcelnote - cleaned badges
 	li "ITEM1A"  ; marcelnote - cleaned badges
 	li "ITEM1B"  ; marcelnote - cleaned badges
-	li "ITEM1C"  ; marcelnote - cleaned badges
+	li "POKé BEEPER" ; "POKé BELL"  ; marcelnote - new for Poké Beeper (ポケベル)
 	li "ESCAPE ROPE"
 	li "REPEL"
 	li "OLD AMBER"

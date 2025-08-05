@@ -97,6 +97,7 @@ Loosely inspired by the anime, manga, and later Pokémon generations, Yume featu
 - New nurse room in the SS.Anne.
 - Pokemon base stats can be consulted directly in the Pokédex.
 - A NPC will allow you to view DVs and Stat.Exp (the Gen1 equivalents of IVs and EVs).
+- Obtain the *Poké Beeper* from Oak's aide on Route 6 to get alerts when your box is almost full.
 
 There are also many other smaller tweaks to the original game, and still more to come!
 

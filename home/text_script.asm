@@ -22,11 +22,12 @@ DisplayTextID::
 	ldh a, [hTextID]
 	ld [wSpriteIndex], a
 
-	dict TEXT_START_MENU,       DisplayStartMenu
-	dict TEXT_SAFARI_GAME_OVER, DisplaySafariGameOverText
-	dict TEXT_MON_FAINTED,      DisplayPokemonFaintedText
-	dict TEXT_BLACKED_OUT,      DisplayPlayerBlackedOutText
-	dict TEXT_REPEL_WORE_OFF,   DisplayRepelWoreOffText
+	dict TEXT_START_MENU,        DisplayStartMenu
+	dict TEXT_SAFARI_GAME_OVER,  DisplaySafariGameOverText
+	dict TEXT_MON_FAINTED,       DisplayPokemonFaintedText
+	dict TEXT_BLACKED_OUT,       DisplayPlayerBlackedOutText
+	dict TEXT_REPEL_WORE_OFF,    DisplayRepelWoreOffText
+	dict TEXT_POKE_BEEPER_ALERT, DisplayPokeBeeperAlertText ; marcelnote - new for PokéBeeper
 
 	; joenote - close if $FF is the textID or sprite index
 	; marcelnote - used for using items with Select
@@ -220,4 +221,22 @@ DisplayRepelWoreOffText::
 
 .RepelWoreOffText:
 	text_far _RepelWoreOffText
+	text_end
+
+DisplayPokeBeeperAlertText:: ; marcelnote - new for PokéBeeper
+	ld a, [wBoxCount]
+	cp MONS_PER_BOX
+	ld hl, .PokeBeeperAlertText
+	jr nz, .print_text
+	ld hl, .PokeBeeperAlertFullText
+.print_text
+	call PrintText
+	jp AfterDisplayingTextID
+
+.PokeBeeperAlertText:
+	text_far _PokeBeeperAlertText
+	text_end
+
+.PokeBeeperAlertFullText:
+	text_far _PokeBeeperAlertFullText
 	text_end

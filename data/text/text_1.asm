@@ -87,7 +87,7 @@ _OaksAideHiText::
 	text_start
 	line "kinds of #MON,"
 	cont "I'm supposed to"
-	cont "give you an"
+	cont "give you the" ; marcelnote - was "give you an" but changed for PokéBeeper
 	cont "@"
 	text_ram wNameBuffer ; marcelnote - was wOaksAideRewardItemName
 	text "!"
