@@ -80,6 +80,7 @@ UncompressSpriteDataLoop::
 	call ReadNextInputBit
 	and a
 	jr z, .readRLEncodedZeros ; if first bit is 0, the input starts with zeroes, otherwise with (non-zero) input
+
 .readNextInput
 	call ReadNextInputBit
 	ld c, a
@@ -91,6 +92,7 @@ UncompressSpriteDataLoop::
 	call WriteSpriteBitsToBuffer  ; otherwise write input to output and repeat
 	call MoveToNextBufferPosition
 	jr .readNextInput
+
 .readRLEncodedZeros
 	ld c, $0                   ; number of zeroes it length encoded, the number
 .countConsecutiveOnesLoop      ; of consecutive ones determines the number of bits the number has
@@ -144,6 +146,7 @@ UncompressSpriteDataLoop::
 .continueLoop
 	jr nz, .writeZerosLoop
 	jr .readNextInput
+
 
 ; moves output pointer to next position
 ; also cancels the calling function if the all output is done (by removing the return pointer from stack)
@@ -253,8 +256,10 @@ ReadNextInputBit::
 	ret
 
 ; reads next byte from input stream and returns it in a and b
+ReadNextInputByte:: ; marcelnote - small optim
 	ld hl, wSpriteInputPtr
 	ld a, [hli]
+	ld h, [hl]
 	ld l, a
 	ld a, [hli]
 	ld b, a
