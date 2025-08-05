@@ -10,7 +10,7 @@ FillMemory::
 	or c
 	jr nz, .loop
 	pop de
-	ret
+	ret ; returns a = b = c = 0
 
 UncompressSpriteFromDE::
 ; Decompress pic at a:de.
