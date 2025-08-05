@@ -252,12 +252,10 @@ ReadNextInputBit::
 	and $1
 	ret
 
-; reads next byte from input stream and returns it in a
-ReadNextInputByte::
-	ld a, [wSpriteInputPtr]
+; reads next byte from input stream and returns it in a and b
+	ld hl, wSpriteInputPtr
+	ld a, [hli]
 	ld l, a
-	ld a, [wSpriteInputPtr+1]
-	ld h, a
 	ld a, [hli]
 	ld b, a
 	ld a, l
@@ -296,7 +294,7 @@ UnpackSprite::
 	ld hl, sSpriteBuffer1
 	call SpriteDifferentialDecode
 	ld hl, sSpriteBuffer2
-	; fall through
+	; fallthrough
 
 ; decodes differential encoded sprite data
 ; input bit value 0 preserves the current bit value and input bit value 1 toggles it (starting from initial value 0).
