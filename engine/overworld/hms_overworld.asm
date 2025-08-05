@@ -7,10 +7,10 @@ CheckForSurf:: ; marcelnote - could be improved if there is a wram bit which che
 ; we have the right badge
 	ld a, [wWalkBikeSurfState]
 	cp 2 ; is the player already surfing?
-    ret z
+	ret z
 ; we are not already surfing
 	callfar IsNextTileShoreOrWater
-    ret c
+	ret c
 ; we have water in front of us
 	call IsSurfingAllowedOverworld
 	ld hl, wStatusFlags1
