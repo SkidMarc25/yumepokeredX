@@ -220,7 +220,8 @@
 ; Saffron City events
 	const_next $340
 	const EVENT_GOT_TM31
-	const_skip 7 ; marcelnote - adjusted
+	const EVENT_GAVE_SAFFRON_GUARDS_DRINK ; marcelnote - moved from wStatusFlags1
+	const_skip 6 ; marcelnote - adjusted
 	const EVENT_DEFEATED_FIGHTING_DOJO
 	const EVENT_BEAT_KARATE_MASTER
 	const EVENT_BEAT_FIGHTING_DOJO_TRAINER_0

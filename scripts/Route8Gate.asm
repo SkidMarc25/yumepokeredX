@@ -22,8 +22,7 @@ Route8GateMovePlayerRightScript:
 	ret
 
 Route8GateDefaultScript:
-	ld a, [wStatusFlags1]
-	bit BIT_GAVE_SAFFRON_GUARDS_DRINK, a
+	CheckEvent EVENT_GAVE_SAFFRON_GUARDS_DRINK
 	ret nz
 	ld hl, .PlayerInCoordsArray
 	call ArePlayerCoordsInArray
@@ -44,8 +43,7 @@ Route8GateDefaultScript:
 	ld [wRoute8GateCurScript], a
 	ret
 .have_drink
-	ld hl, wStatusFlags1
-	set BIT_GAVE_SAFFRON_GUARDS_DRINK, [hl]
+	SetEvent EVENT_GAVE_SAFFRON_GUARDS_DRINK
 	ld a, TEXT_ROUTE8GATE_GUARD_GIVE_DRINK
 	ldh [hTextID], a
 	jp DisplayTextID
