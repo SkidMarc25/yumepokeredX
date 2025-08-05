@@ -5,7 +5,7 @@
 
 ; bankswitches and runs _UncompressSpriteData
 ; bank is given in a, sprite input stream is pointed to in wSpriteInputPtr
-UncompressSpriteData::
+UncompressSpriteData:: ; marcelnote - small optimization
 	ld b, a
 	ldh a, [hLoadedROMBank]
 	push af
@@ -25,37 +25,35 @@ UncompressSpriteData::
 ; initializes necessary data to load a sprite and runs UncompressSpriteDataLoop
 _UncompressSpriteData::
 	ld hl, sSpriteBuffer1
-	ld c, LOW(2 * SPRITEBUFFERSIZE)
-	ld b, HIGH(2 * SPRITEBUFFERSIZE)
+	ld bc, 2 * SPRITEBUFFERSIZE
 	xor a
-	call FillMemory           ; clear sprite buffer 1 and 2
-	ld a, $1
+	call FillMemory ; clear sprite buffer 1 and 2, returns a = $0
+	inc a           ; a = $1
 	ld [wSpriteInputBitCounter], a
 	ld a, $3
 	ld [wSpriteOutputBitOffset], a
 	xor a
 	ld [wSpriteCurPosX], a
 	ld [wSpriteCurPosY], a
-	ld [wSpriteLoadFlags], a
-	call ReadNextInputByte    ; first byte of input determines sprite width (high nybble) and height (low nybble) in tiles (8x8 pixels)
-	ld b, a
-	and $f
+	; first byte of input determines sprite width (high nybble) and height (low nybble) in tiles (8x8 pixels)
+	call ReadNextInputByte  ; returns input byte in both a and b
+	and $f ; isolate low nybble
 	add a
 	add a
-	add a
+	add a  ; a = height in pixels
 	ld [wSpriteHeight], a
 	ld a, b
 	swap a
-	and $f
+	and $f ; isolate high nybble
 	add a
 	add a
-	add a
+	add a  ; a = width in pixels
 	ld [wSpriteWidth], a
 	call ReadNextInputBit
 	ld [wSpriteLoadFlags], a ; initialize bit1 to 0 and bit0 to the first input bit
                              ; this will load two chunks of data to sSpriteBuffer1 and sSpriteBuffer2
                              ; bit 0 decides in which one the first chunk is placed
-	; fall through
+	; fallthrough
 
 ; uncompresses a chunk from the sprite input data stream (pointed to by wSpriteInputPtr) into sSpriteBuffer1 or sSpriteBuffer2
 ; each chunk is a 1bpp sprite. A 2bpp sprite consist of two chunks which are merged afterwards
