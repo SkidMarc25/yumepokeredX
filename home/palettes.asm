@@ -10,6 +10,7 @@ RestoreScreenTilesAndReloadTilePatterns::
 
 GBPalWhiteOutWithDelay3::
 	call GBPalWhiteOut
+	; fallthrough
 
 Delay3::
 ; The bg map is updated each frame in thirds.
