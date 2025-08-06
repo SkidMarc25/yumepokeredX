@@ -15,6 +15,8 @@ Above all, it seeks to preserve the charm and spirit of these games.
 夢 (Yume), meaning dream, symbolizes a return to Kanto where the line between memory and reimagination blurs.
 Loosely inspired by the anime, manga, and later Pokémon generations, Yume features expanded storylines, new areas, and subtle cultural touches highlighting the games' Japanese roots.
 
+Download the latest version from the [releases page](https://github.com/PokefanMarcel/yumepokered/releases).
+
 ### What's new?
 
 - **Catch 'em all!** All original 151 Pokémon are available through natural gameplay.
