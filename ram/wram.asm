@@ -1410,7 +1410,7 @@ wLowHealthAlarmOrig:: db
 ; counts how many tiles of the current frame block have been drawn
 wFBTileCounter:: db
 
-wMovingBGTilesCounter2:: db
+	ds 1 ; marcelnote - was wMovingBGTilesCounter2
 
 ; duration of each frame of the current subanimation in terms of screen refreshes
 wSubAnimFrameDelay:: db

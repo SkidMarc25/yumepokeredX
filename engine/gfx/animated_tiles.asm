@@ -24,10 +24,10 @@ AnimateTiles::
 	jp hl
 
 .reset
-	ld a, [wMovingBGTilesCounter2] ; increment w-counter
+	ldh a, [hMovingBGTilesCounter2] ; increment w-counter
 	inc a
 	and $7 ; %00000111 ; a mod 8 (8 is the period of the animations)
-	ld [wMovingBGTilesCounter2], a
+	ldh [hMovingBGTilesCounter2], a
 
 	xor a
 	ldh [hMovingBGTilesCounter1], a ; reset h-counter at tick 22
@@ -51,10 +51,10 @@ AnimationsTable: ; each animation happens on a different counter tick
 ;	ld hl, vTileset tile $14
 ;	ld c, $10
 ;
-;	ld a, [wMovingBGTilesCounter2]
+;	ldh a, [hMovingBGTilesCounter2]
 ;	inc a
-;	and 7 ; %00000111 ; a modulo 8
-;	ld [wMovingBGTilesCounter2], a
+;	and $7 ; %00000111 ; a modulo 8
+;	ldh [hMovingBGTilesCounter2], a
 ;
 ;	and 4 ; %00000100 ; a >= 4 ?
 ;	jp z, ScrollTileRight ; scroll right when counter is 0 1 2 3
@@ -71,36 +71,30 @@ AnimateWaterTile: ; marcelnote - modified this function to synchronize with wate
 	jr z, .got_table
 	ld hl, WaterAltTilesTable ; other tilesets have different water tiles
 .got_table
-	ld a, [wMovingBGTilesCounter2]
-	cp 5 ; a < 5 ?
-	jr c, .noReverse ; need to transform 0 1 2 3 4 5 6 7 into 0 1 2 3 4 3 2 1
-	ld b, a
-	ld a, 8
-	sub b ; a <- 8 - a
-.noReverse
+	ldh a, [hMovingBGTilesCounter2]
 	ld de, vTileset tile $14 ; water tile
 	jp AnimateFindPointerInTable
 
 
 WaterTilesTable:
-	dw WaterTile1
-	dw WaterTile2
-	dw WaterTile3
-	dw WaterTile4
-	dw WaterTile5
-	;dw WaterTile6 ; unused
-	;dw WaterTile7 ; unused
-	;dw WaterTile8 ; unused
+	dw WaterTile1 ; 0
+	dw WaterTile2 ; 1
+	dw WaterTile3 ; 2
+	dw WaterTile4 ; 3
+	dw WaterTile5 ; 4
+	dw WaterTile4 ; 5
+	dw WaterTile3 ; 6
+	dw WaterTile2 ; 7
 
 WaterAltTilesTable:
-	dw WaterAltTile1
-	dw WaterAltTile2
-	dw WaterAltTile3
-	dw WaterAltTile4
-	dw WaterAltTile5
-	;dw WaterAltTile6 ; unused
-	;dw WaterAltTile7 ; unused
-	;dw WaterAltTile8 ; unused
+	dw WaterAltTile1 ; 0
+	dw WaterAltTile2 ; 1
+	dw WaterAltTile3 ; 2
+	dw WaterAltTile4 ; 3
+	dw WaterAltTile5 ; 4
+	dw WaterAltTile4 ; 5
+	dw WaterAltTile3 ; 6
+	dw WaterAltTile2 ; 7
 
 
 AnimateWaterBollardTile:
@@ -113,36 +107,30 @@ AnimateWaterBollardTile:
 	jr z, .got_table
 	ld hl, WaterBollardAltTilesTable ; other tilesets have different water tiles
 .got_table
-	ld a, [wMovingBGTilesCounter2]
-	cp 5 ; a < 5 ?
-	jr c, .noReverse ; need to transform 0 1 2 3 4 5 6 7 into 0 1 2 3 4 3 2 1
-	ld b, a
-	ld a, 8
-	sub b ; a <- 8 - a
-.noReverse
+	ldh a, [hMovingBGTilesCounter2]
 	ld de, vTileset tile $5e ; water bollard tile
 	jp AnimateFindPointerInTable
 
 
 WaterBollardTilesTable:
-	dw WaterBollardTile1
-	dw WaterBollardTile2
-	dw WaterBollardTile3
-	dw WaterBollardTile4
-	dw WaterBollardTile5
-	;dw WaterBollardTile6 ; unused
-	;dw WaterBollardTile7 ; unused
-	;dw WaterBollardTile8 ; unused
+	dw WaterBollardTile1 ; 0
+	dw WaterBollardTile2 ; 1
+	dw WaterBollardTile3 ; 2
+	dw WaterBollardTile4 ; 3
+	dw WaterBollardTile5 ; 4
+	dw WaterBollardTile4 ; 5
+	dw WaterBollardTile3 ; 6
+	dw WaterBollardTile2 ; 7
 
 WaterBollardAltTilesTable:
-	dw WaterBollardAltTile1
-	dw WaterBollardAltTile2
-	dw WaterBollardAltTile3
-	dw WaterBollardAltTile4
-	dw WaterBollardAltTile5
-	;dw WaterBollardAltTile6 ; unused
-	;dw WaterBollardAltTile7 ; unused
-	;dw WaterBollardAltTile8 ; unused
+	dw WaterBollardAltTile1 ; 0
+	dw WaterBollardAltTile2 ; 1
+	dw WaterBollardAltTile3 ; 2
+	dw WaterBollardAltTile4 ; 3
+	dw WaterBollardAltTile5 ; 4
+	dw WaterBollardAltTile4 ; 5
+	dw WaterBollardAltTile3 ; 6
+	dw WaterBollardAltTile2 ; 7
 
 
 AnimateSlowWaterTile:
@@ -158,7 +146,7 @@ AnimateLavaTile: ; marcelnote - reuse function initially used for water
 	ret z
 	ld hl, vTileset tile $4B ; lava tile
 .gotTile
-	ld a, [wMovingBGTilesCounter2]
+	ldh a, [hMovingBGTilesCounter2]
 	rra   ; rotate bit 0 into carry
 	ret c ; don't animate if counter is odd
 	and 2 ; %00000010 ; a >= 2 ?
@@ -170,7 +158,6 @@ AnimateWaterfallTile:
 	ldh a, [hTileAnimations]
 	bit BIT_ANIM_WATERFALL, a
 	ret z
-
 	ld hl, vTileset tile $48 ; waterfall tile
 	jp ScrollTileDown
 
@@ -180,8 +167,8 @@ AnimateFlowerTile:
 	bit BIT_ANIM_FLOWER, a
 	ret z
 
-	ld a, [wMovingBGTilesCounter2]
-	and 3 ; = %00000011 ; a modulo 4
+	ldh a, [hMovingBGTilesCounter2]
+	and $3 ; = %00000011 ; a modulo 4
 	cp 2
 	ld hl, FlowerTile1 ; if counter is 0 or 1
 	jr c, .copy
@@ -198,7 +185,7 @@ AnimateLavaBubble1Tile: ; first lava tile
 	bit BIT_ANIM_LAVA, a
 	ret z
 	ld hl, LavaBubbleTilesTable
-	ld a, [wMovingBGTilesCounter2]
+	ldh a, [hMovingBGTilesCounter2]
 	srl a ; divide a by 2
 	ld de, vTileset tile $4A ; first lava bubble tile
 	jp AnimateFindPointerInTable
@@ -208,7 +195,7 @@ AnimateLavaBubble2Tile: ; second lava tile
 	bit BIT_ANIM_LAVA, a
 	ret z
 	ld hl, LavaBubbleTilesTable
-	ld a, [wMovingBGTilesCounter2]
+	ldh a, [hMovingBGTilesCounter2]
 	add $3
 	and $7
 	srl a ; divide a by 2
@@ -227,8 +214,8 @@ AnimateLanternLeftTile:
 	bit BIT_ANIM_LANTERN, a
 	ret z
 	; left tile
-	ld a, [wMovingBGTilesCounter2]
-	;and 7 ; = %00000111 ; a modulo 8
+	ldh a, [hMovingBGTilesCounter2]
+	;and $7 ; = %00000111 ; a modulo 8
 	cp 5
 	ld hl, LanternLeftTile1 ; if counter is 0 1 2 3 4
 	jr c, .copy
@@ -246,8 +233,8 @@ AnimateLanternRightTile:
 	bit BIT_ANIM_LANTERN, a
 	ret z
 	; right tile
-	ld a, [wMovingBGTilesCounter2]
-	;and 7 ; = %00000111 ; a modulo 8
+	ldh a, [hMovingBGTilesCounter2]
+	;and $7 ; = %00000111 ; a modulo 8
 	cp 6
 	ld hl, LanternRightTile1 ; if counter is 0 1 2 3 4 5
 	jr c, .copy
@@ -262,19 +249,19 @@ AnimateLiveWaterTile:
 	bit BIT_ANIM_LIVEWATER, a
 	ret z
 	ld hl, LiveWaterTilesTable
-	ld a, [wMovingBGTilesCounter2]
+	ldh a, [hMovingBGTilesCounter2]
 	ld de, vTileset tile $15 ; livewater tile
 	jp AnimateFindPointerInTable
 
 LiveWaterTilesTable:
-	dw LiveWaterTile1
-	dw LiveWaterTile2
-	dw LiveWaterTile3
-	dw LiveWaterTile4
-	dw LiveWaterTile5
-	dw LiveWaterTile6
-	dw LiveWaterTile7
-	dw LiveWaterTile7
+	dw LiveWaterTile1 ; 0
+	dw LiveWaterTile2 ; 1
+	dw LiveWaterTile3 ; 2
+	dw LiveWaterTile4 ; 3
+	dw LiveWaterTile5 ; 4
+	dw LiveWaterTile6 ; 5
+	dw LiveWaterTile7 ; 6
+	dw LiveWaterTile7 ; 7
 
 
 

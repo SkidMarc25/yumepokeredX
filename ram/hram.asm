@@ -274,8 +274,7 @@ hVBlankOccurred:: db
 hTileAnimations:: db
 
 hMovingBGTilesCounter1:: db
-
-	ds 1
+hMovingBGTilesCounter2:: db
 
 hCurrentSpriteOffset:: db ; multiple of $10
 
