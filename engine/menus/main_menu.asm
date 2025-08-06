@@ -368,7 +368,7 @@ ELIF DEF(_BLUE)
 ELIF DEF(_GREEN)
 	db "YumeGreen "
 ENDC
-	db "v0.9@"
+	db "v1.0@"
 ;db " v"
 ;INCLUDE "version_number.asm"
 ;db "@"
