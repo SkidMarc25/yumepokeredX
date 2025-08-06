@@ -2368,8 +2368,8 @@ UseBagItem:
 	call LoadScreenTilesFromBuffer1
 	call DrawHUDsAndHPBars
 	call Delay3
-.returnAfterUsingItem_NoCapture
 
+.returnAfterUsingItem_NoCapture
 	call GBPalNormal
 	and a ; reset carry
 	ret
@@ -2503,7 +2503,7 @@ PartyMenuOrRockOrRun:
 	call GBPalWhiteOut
 	call ClearSprites
 	call LoadHudTilePatterns
-	callfar CalcAndLoadExpBarDynamicTile ; marcelnote - new for ExpBar
+	callfar CalcAndLoadExpBarDynamicTile ; marcelnote - for dynamic exp bar tile
 	call LoadScreenTilesFromBuffer1
 	call RunDefaultPaletteCommand
 	call GBPalNormal
