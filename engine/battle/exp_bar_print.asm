@@ -307,6 +307,11 @@ BattleMonPartyAttr:
 	jp AddNTimes
 
 
+CalcAndLoadExpBarDynamicTile: ; needed for jpfar
+	call CalcEXPBarPixelLength
+	ldh a, [hQuotient + 3]    ; pixel length
+	; fallthrough
+
 LoadExpBarDynamicTile:
 	and $7 ; a mod 8
 	swap a ; a * 16
@@ -316,15 +321,9 @@ LoadExpBarDynamicTile:
 	add hl, bc
 	ld d, h
 	ld e, l
-	ld hl, vChars2 tile $75 ; "<EXP_BAR_PARTIAL>"
+	ld hl, vChars2 tile "<EXP_BAR_PARTIAL>"
 	lb bc, BANK(EXPBarGraphics), 1 ; 1 tile
 	jp CopyVideoData
-
-
-CalcAndLoadExpBarDynamicTile: ; needed for jpfar
-	call CalcEXPBarPixelLength
-	ldh a, [hQuotient + 3]    ; pixel length
-	jp LoadExpBarDynamicTile
 
 
 EXPBarGraphics::  INCBIN "gfx/battle/exp_bar.2bpp"
