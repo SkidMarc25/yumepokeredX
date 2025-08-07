@@ -16,6 +16,10 @@ PrintLetterDelay:: ; marcelnote - small optimization
 	jr z, .loadWaitFrames
 	ld a, [wOptions]
 	and TEXT_DELAY_MASK ; marcelnote - replaced $f
+	jr z, .loadWaitFrames
+; marcelnote - 1-2-3 into 1-3-5 with 2a - 1
+	rla
+	dec a
 .loadWaitFrames
 	ldh [hFrameCounter], a
 .checkButtons

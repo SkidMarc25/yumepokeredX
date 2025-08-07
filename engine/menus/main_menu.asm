@@ -132,7 +132,7 @@ MainMenu:
 InitOptions:
 	ld a, 1 << BIT_FAST_TEXT_DELAY
 	ld [wLetterPrintingDelayFlags], a
-	ld a, TEXT_DELAY_MEDIUM
+	ld a, TEXT_DELAY_FAST ; marcelnote - was TEXT_DELAY_MEDIUM
 	ld [wOptions], a
 	ret
 

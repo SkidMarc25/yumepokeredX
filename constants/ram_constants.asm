@@ -38,9 +38,10 @@ DEF TEXT_DELAY_MASK EQU %11 ; marcelnote - changed from %111 = 7
 	const BIT_BATTLE_SET       ; 6
 	const BIT_BATTLE_ANIM_OFF  ; 7
 
-DEF TEXT_DELAY_FAST   EQU %00 ; 0  ; marcelnote - changed from %001 = 1
-DEF TEXT_DELAY_MEDIUM EQU %01 ; 1  ; marcelnote - changed from %011 = 3
-DEF TEXT_DELAY_SLOW   EQU %11 ; 3  ; marcelnote - changed from %101 = 5
+DEF TEXT_DELAY_INSTANT EQU 0 ; 0  ; marcelnote - new
+DEF TEXT_DELAY_FAST    EQU 1 ; 1  ; marcelnote - changed from %001 = 1
+DEF TEXT_DELAY_MEDIUM  EQU 2 ; 2  ; marcelnote - changed from %011 = 3
+DEF TEXT_DELAY_SLOW    EQU 3 ; 3  ; marcelnote - changed from %101 = 5
 
 ; wLetterPrintingDelayFlags
 	const_def

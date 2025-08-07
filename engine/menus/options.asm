@@ -99,19 +99,19 @@ OptionMenuJumpTable:
 
 
 OptionsMenu_TextSpeed:
-	call GetTextSpeed ; c = 0 (fast), 1 (medium), 2 (slow),
+	call GetTextSpeed ; c = 0 (instant), 1 (fast), 2 (medium), 3 (slow),
 	ldh a, [hJoy5]    ; d = left speed, e = right speed
 	bit B_PAD_RIGHT, a
 	jr nz, .pressedRight
 	bit B_PAD_LEFT, a
 	jr nz, .pressedLeft
-	jr .nonePressed
+	ret
 .pressedRight ; pick right speed e and increase c
 	inc c
 	ld a, c
-	cp 3
+	cp 4
 	jr nz, .save
-	ld c, 0   ; wrap around to 0 if c = 3
+	ld c, 0   ; wrap around to 0 if c = 4
 	jr .save
 .pressedLeft  ; pick left speed d and decrease c
 	ld e, d
@@ -119,7 +119,7 @@ OptionsMenu_TextSpeed:
 	ld a, c
 	cp -1 ; inc a
 	jr nz, .save
-	ld c, 2   ; wrap around to 2 if c = 0
+	ld c, 3   ; wrap around to 3 if c = 0
 .save
 	ld a, [wOptions]
 	and ~TEXT_DELAY_MASK
@@ -141,34 +141,39 @@ OptionsMenu_TextSpeed:
 GetTextSpeed:
 	ld a, [wOptions]
 	and TEXT_DELAY_MASK
-	cp TEXT_DELAY_FAST
+	ld c, a
+	jr z, .instantTextOption
+	dec a
 	jr z, .fastTextOption
-	cp TEXT_DELAY_MEDIUM
+	dec a
 	jr z, .mediumTextOption
 ; slow text option
-	ld c, 2
-	lb de, TEXT_DELAY_MEDIUM, TEXT_DELAY_FAST
+	lb de, TEXT_DELAY_MEDIUM, TEXT_DELAY_INSTANT
 	ret
 .mediumTextOption
-	ld c, 1
 	lb de, TEXT_DELAY_FAST, TEXT_DELAY_SLOW
 	ret
 .fastTextOption
-	ld c, 0
-	lb de, TEXT_DELAY_SLOW, TEXT_DELAY_MEDIUM
+	lb de, TEXT_DELAY_INSTANT, TEXT_DELAY_MEDIUM
+	ret
+.instantTextOption
+	lb de, TEXT_DELAY_SLOW, TEXT_DELAY_FAST
 	ret
 
 TextSpeedStringsPointerTable:
+	dw InstantText
 	dw FastText
 	dw MediumText
 	dw SlowText
 
+InstantText:
+	db "INSTANT@"
 FastText:
-	db "FAST  @"
+	db "FAST   @"
 MediumText:
-	db "MEDIUM@"
+	db "MEDIUM @"
 SlowText:
-	db "SLOW  @"
+	db "SLOW   @"
 
 
 OptionsMenu_BattleAnimations: ; bit set = animations off
