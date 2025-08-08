@@ -83,19 +83,19 @@ DEF LCDC_DEFAULT EQU LCDC_ON | LCDC_WIN_9C00 | LCDC_WIN_ON | LCDC_BLOCK21 | LCDC
 	ld hl, wRandomSeed ; $DEF0 in shinpokered
 	pop af
 	call z, .inc_a
-	ld [hRandomAdd], a
+	ldh [hRandomAdd], a
 	ld [hli], a
 	pop af
 	call z, .inc_a
-	ld [hRandomSub], a
+	ldh [hRandomSub], a
 	ld [hli], a
 	pop af
 	call z, .inc_a
-	ld [hRandomLast], a
+	ldh [hRandomLast], a
 	ld [hli], a
 	pop af
 	call z, .inc_a
-	ld [hRandomLast + 1], a
+	ldh [hRandomLast + 1], a
 	ld [hli], a
 ;;;;;;;;;;;;;;;;;;;;
 

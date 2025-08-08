@@ -35,7 +35,7 @@ VBlank::
 	call VBlankCopyDouble
 	call UpdateMovingBgTiles
 ;;;;;;;;;;;;;;;; marcelnote - OAM updates can be interrupted by V-Blank (pokered Wiki)
-	ld a, [hSkipOAMUpdates]
+	ldh a, [hSkipOAMUpdates]
 	bit 0, a
 	call z, hDMARoutine
 ;;;;;;;;;;;;;;;;

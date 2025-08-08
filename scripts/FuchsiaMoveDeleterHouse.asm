@@ -200,10 +200,10 @@ MoveReminderText:
 	jp nz, .exit
 	xor a
 	;charge 1000 money
-	ld [hMoney], a
-	ld [hMoney + 2], a
+	ldh [hMoney], a
+	ldh [hMoney + 2], a
 	ld a, $0A
-	ld [hMoney + 1], a
+	ldh [hMoney + 1], a
 	call HasEnoughMoney
 	jr nc, .enoughMoney
 	; not enough money

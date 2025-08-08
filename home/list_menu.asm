@@ -172,8 +172,7 @@ DisplayListMenuIDLoop::
 	ld a, [wCurrentMenuItem]
 	ld [wChosenMenuItem], a
 	xor a
-	;ldh [hJoy7], a ; joypad state update flag	; marcelnote - pokered Move Deleter/Relearner tutorial
-	ld [hJoy7], a ; joypad state update flag
+	ldh [hJoy7], a ; joypad state update flag
 	ld hl, wStatusFlags5
 	res BIT_NO_TEXT_DELAY, [hl]
 	jp BankswitchBack
