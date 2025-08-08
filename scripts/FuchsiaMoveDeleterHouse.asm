@@ -12,11 +12,16 @@ MoveDeleterText:
 	text_asm
 	ld hl, MoveDeleterGreetingText
 	call PrintText
-.jumpback
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
-	jp nz, .exit
+	jr z, .saidYes
+.exit
+	ld hl, MoveDeleterByeText
+	call PrintText
+	rst TextScriptEnd ; PureRGB - rst TextScriptEnd
+
+.saidYes
 	ld hl, MoveDeleterSaidYesText
 	call PrintText
 	; Select pokemon from party.
@@ -32,7 +37,7 @@ MoveDeleterText:
 	call RestoreScreenTilesAndReloadTilePatterns
 	call LoadGBPal
 	pop af
-	jp c, .exit
+	jr c, .exit
 	ld a, [wWhichPokemon]
 	ld b, a
 	push bc
@@ -43,7 +48,7 @@ MoveDeleterText:
 	jr nc, .chooseMove
 	ld hl, MoveDeleterOneMoveText
 	call PrintText
-	jr .jumpback
+	jr .saidYes
 .chooseMove
 	push bc
 	xor a
@@ -90,10 +95,6 @@ MoveDeleterText:
 	pop de ; d = move id
 	call DeleteMove
 	ld hl, MoveDeleterForgotText
-	call PrintText
-	rst TextScriptEnd ; PureRGB - rst TextScriptEnd
-.exit
-	ld hl, MoveDeleterByeText
 	call PrintText
 	rst TextScriptEnd ; PureRGB - rst TextScriptEnd
 
