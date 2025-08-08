@@ -2964,7 +2964,7 @@ ShoreTiles:
 	db $32 ; usual eastern shore tile
 WaterTile:
 	db $14
-	db $ff ; terminator
+	db -1  ; terminator
 
 INCLUDE "data/tilesets/water_tilesets.asm"
 
