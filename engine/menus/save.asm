@@ -13,13 +13,12 @@ LoadSAV:
 	jr .goodsum
 .badsum
 	ld hl, wStatusFlags5
-	push hl
 	set BIT_NO_TEXT_DELAY, [hl]
 	ld hl, FileDataDestroyedText
 	call PrintText
 	ld c, 100
 	call DelayFrames
-	pop hl
+	ld hl, wStatusFlags5
 	res BIT_NO_TEXT_DELAY, [hl]
 	ld a, $1 ; bad checksum
 .goodsum

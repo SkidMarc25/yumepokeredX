@@ -177,7 +177,6 @@ RedrawPartyMenu_::
 	ld hl, wStatusFlags5
 	ld a, [hl]
 	push af
-	push hl
 	set BIT_NO_TEXT_DELAY, [hl]
 	ld a, [wPartyMenuTypeOrMessageID] ; message ID
 	cp FIRST_PARTY_MENU_TEXT_ID
@@ -192,7 +191,7 @@ RedrawPartyMenu_::
 	ld l, a
 	call PrintText
 .done
-	pop hl
+	ld hl, wStatusFlags5
 	pop af
 	ld [hl], a
 	ld a, 1

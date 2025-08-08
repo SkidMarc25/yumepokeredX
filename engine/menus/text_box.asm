@@ -40,7 +40,6 @@ DisplayTextBoxID_::
 	call GetTextBoxIDText
 	ld a, [wStatusFlags5]
 	push af
-	ld a, [wStatusFlags5]
 	set BIT_NO_TEXT_DELAY, a
 	ld [wStatusFlags5], a
 	call PlaceString

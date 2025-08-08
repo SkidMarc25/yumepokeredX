@@ -3,7 +3,6 @@ PKMNLeaguePC:
 	call PrintText
 	ld hl, wStatusFlags5
 	set BIT_NO_TEXT_DELAY, [hl]
-	push hl
 	ld a, [wUpdateSpritesEnabled]
 	push af
 	ldh a, [hTileAnimations]
@@ -43,7 +42,7 @@ PKMNLeaguePC:
 	ldh [hTileAnimations], a
 	pop af
 	ld [wUpdateSpritesEnabled], a
-	pop hl
+	ld hl, wStatusFlags5
 	res BIT_NO_TEXT_DELAY, [hl]
 	call GBPalWhiteOutWithDelay3
 	call ClearScreen
