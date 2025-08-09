@@ -28,6 +28,8 @@ ENDM
 .SafariDoorTileIDs: ; marcelnote - new tileset from FOREST
 	door_tiles $3a
 
+.MountainDoorTileIDs:   ; marcelnote - new tileset
+	db $5c
 .LabDoorTileIDs: ; marcelnote - reorganized tileset
 .GameDoorTileIDs:
 .PokecenterDoorTileIDs: ; marcelnote - was MartDoorTileIDs, replaced
@@ -56,6 +58,3 @@ ENDM
 
 .AcademyDoorTileIDs:    ; marcelnote - new tileset
 	door_tiles $1a, $1c
-
-.MountainDoorTileIDs:   ; marcelnote - new tileset
-	door_tiles $24, $5A

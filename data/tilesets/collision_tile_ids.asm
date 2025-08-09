@@ -69,7 +69,7 @@ Academy_Coll::  ; marcelnote - new tileset
 	coll_tiles $01, $12, $14, $1A, $1C
 
 Mountain_Coll::  ; marcelnote - new tileset
-	coll_tiles $40, $2E, $12, $20, $24, $53, $5A
+	coll_tiles $01, $12, $20, $2E, $40, $5C, $5E
 
 BeachHouse_Coll::  ; marcelnote - new tileset from pokeyellow
 	coll_tiles $01, $12, $20, $21, $58, $5a

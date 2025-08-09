@@ -37,9 +37,9 @@ Tilesets:
 	tileset Club,        $07,$17, -1,  -1, TILEANIM_NONE
 	tileset Facility,    $12, -1, -1,  -1, TILEANIM_WATER
 	tileset Plateau,      -1, -1, -1, $45, TILEANIM_WATER
-	tileset Academy,      -1, -1, -1,  -1, TILEANIM_NONE    ; marcelnote - new tileset
-	tileset Mountain,     -1, -1, -1,  -1, TILEANIM_WATER   ; marcelnote - new tileset
-	tileset BeachHouse,  $19, -1, -1,  -1, TILEANIM_NONE    ; marcelnote - new tileset from pokeyellow
-	tileset Plant,        -1, -1, -1,  -1, TILEANIM_PLANT   ; marcelnote - new tileset for Power Plant
-	tileset Game,        $46,$57, -1,  -1, TILEANIM_NONE    ; marcelnote - new tileset for Power Plant
+	tileset Academy,      -1, -1, -1,  -1, TILEANIM_NONE     ; marcelnote - new tileset
+	tileset Mountain,     -1, -1, -1,  -1, TILEANIM_MOUNTAIN ; marcelnote - new tileset
+	tileset BeachHouse,  $19, -1, -1,  -1, TILEANIM_NONE     ; marcelnote - new tileset from pokeyellow
+	tileset Plant,        -1, -1, -1,  -1, TILEANIM_PLANT    ; marcelnote - new tileset for Power Plant
+	tileset Game,        $46,$57, -1,  -1, TILEANIM_NONE     ; marcelnote - new tileset for Game Corner
 	assert_table_length NUM_TILESETS

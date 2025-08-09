@@ -44,6 +44,8 @@ ENDM
 .AcademyWarpTileIDs: ; marcelnote - new tileset
 	warp_tiles $1A, $1C
 
+.MountainWarpTileIDs: ; marcelnote - new tileset
+	db $5C
 .LabWarpTileIDs: ; marcelnote - reorganized tileset
 .PokecenterWarpTileIDs:
 .GameWarpTileIDs: ; marcelnote - new tileset from Lobby
@@ -82,9 +84,6 @@ ENDM
 	; fallthrough
 .UndergroundWarpTileIDs:
 	warp_tiles $13
-
-.MountainWarpTileIDs: ; marcelnote - new tileset
-	warp_tiles $24
 
 .PlateauWarpTileIDs:
 	db $1B, $3B

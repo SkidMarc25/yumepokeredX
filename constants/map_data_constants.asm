@@ -42,6 +42,7 @@ DEF MAX_OBJECT_EVENTS EQU 16
 	DEF TILEANIM_WATER_FLOWER_WBOLLARD    EQU %00000111 ; = 7
 	DEF TILEANIM_LANTERN                  EQU %00001000 ; = 8
 	DEF TILEANIM_CAVERN                   EQU %00110001 ; = 49
+	DEF TILEANIM_MOUNTAIN                 EQU (1 << BIT_ANIM_WATER) | (1 << BIT_ANIM_LAVA)
 	DEF TILEANIM_PLANT                    EQU (1 << BIT_ANIM_WATERFALL) | (1 << BIT_ANIM_LIVEWATER)
 	; need to change definitions using (1 << BIT_ANIM_WATER) | (1 << BIT_ANIM_FLOWER) | ...
 	; and rename constants according to relevant tileset e.g. TILEANIM_OVERWORLD
