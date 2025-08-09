@@ -144,5 +144,5 @@ This project owes a lot to existing works, and above all to the pret [pokered](h
 I try my best to keep track of all references, but I'm most likely forgetting some.
 If you think I should credit your work here, I'll be happy to do so – just reach out to me on the pokered Discord!
 
-Enjoy this project? Help make it even better!  
+Enjoy this project? Help make it even better!
 I’m looking for creative contributions like new music, fresh graphics (especially Pokémon backsprites), and translations into other languages — please reach out via [GitHub](https://github.com/PokefanMarcel/yumepokered/issues) or [Reddit](https://www.reddit.com/message/compose/?to=wdpk_phoenix)!
