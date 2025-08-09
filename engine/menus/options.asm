@@ -105,7 +105,7 @@ OptionsMenu_TextSpeed:
 	jr nz, .pressedRight
 	bit B_PAD_LEFT, a
 	jr nz, .pressedLeft
-	ret
+	jr .nonePressed
 .pressedRight ; pick right speed e and increase c
 	inc c
 	ld a, c
