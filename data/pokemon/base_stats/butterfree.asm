@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/butterfree.pic", 0, 1 ; sprite dimensions
 	dw ButterfreePicFront, ButterfreePicBack
 
-	db TACKLE, STRING_SHOT, CONFUSION, NO_MOVE ; level 1 learnset ; marcelnote - added TACKLE and STRING_SHOT
+	db TACKLE, STRING_SHOT, NO_MOVE, NO_MOVE ; level 1 learnset ; marcelnote - added TACKLE and STRING_SHOT, removed CONFUSION
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

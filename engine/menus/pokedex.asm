@@ -102,11 +102,10 @@ HandlePokedexSideMenu:
 	and a
 	jr z, .choseData
 	dec a
-	jr z, .choseCry
+	jr z, .choseMove ; marcelnote - reorganized for learnset page
 	dec a
 	jr z, .choseArea
-.choseQuit
-	ld b, 1
+	jr .choseCry
 .exitSideMenu
 	pop af
 	ld [wDexMaxSeenMon], a
@@ -140,6 +139,16 @@ HandlePokedexSideMenu:
 	ld b, 0
 	jr .exitSideMenu
 
+.choseMove ; marcelnote - new for learnset page
+    call ShowPokedexMoves
+    ld b, 0
+    jr .exitSideMenu
+
+.choseArea
+	predef LoadTownMap_Nest ; display pokemon areas
+	ld b, 0
+	jr .exitSideMenu
+
 ; play pokemon cry
 .choseCry
 	ld a, [wPokedexNum]
@@ -150,11 +159,6 @@ HandlePokedexSideMenu:
 ;	call GetCryData
 ;	call PlaySound
 	jr .handleMenuInput
-
-.choseArea
-	predef LoadTownMap_Nest ; display pokemon areas
-	ld b, 0
-	jr .exitSideMenu
 
 ; handles the list of pokemon on the left of the pokedex screen
 ; sets carry flag if player presses A, unsets carry flag if player presses B
@@ -372,9 +376,10 @@ PokedexContentsText:
 
 PokedexMenuItemsText:
 	db   "DATA"
-	next "CRY"
+	next "MOVE" ; marcelnote - reorganized for learnset page
 	next "AREA"
-	next "QUIT@"
+	next "CRY@"
+
 
 ; tests if a pokemon's bit is set in the seen or owned pokemon bit fields
 ; INPUT:
@@ -821,3 +826,241 @@ IndexToPokedex:
 	ret
 
 INCLUDE "data/pokemon/dex_order.asm"
+
+
+ShowPokedexMoves: ; marcelnote - new for learnset page
+	ld hl, wStatusFlags2
+	set BIT_NO_AUDIO_FADE_OUT, [hl]
+	ld a, $33 ; 3/7 volume
+	ldh [rAUDVOL], a
+	call ClearScreen
+
+	hlcoord 0, 0
+	ld de, 1
+	lb bc, $64, SCREEN_WIDTH
+	call DrawTileLine ; draw top border
+
+	hlcoord 0, 17
+	ld b, $6d
+	call DrawTileLine ; draw bottom border
+
+	hlcoord 0, 1
+	ld de, 20
+	lb bc, $66, $10
+	call DrawTileLine ; draw left border
+
+	hlcoord 19, 1
+	ld b, $68
+	call DrawTileLine ; draw right border
+
+	ld a, $63 ; upper left corner tile
+	ldcoord_a 0, 0
+	ld a, $65 ; upper right corner tile
+	ldcoord_a 19, 0
+	ld a, $6c ; lower left corner tile
+	ldcoord_a 0, 17
+	ld a, $6e ; lower right corner tile
+	ldcoord_a 19, 17
+
+	call GetMonName
+	hlcoord 2, 1
+	call PlaceString ; Pokémon name
+.skipNameTiles
+	ld a, [hli]
+	cp " "
+	jr nz, .skipNameTiles
+	dec hl
+	ld de, PokedexMovesHeader
+	call PlaceString
+
+	hlcoord 0, 2
+	ld de, PokedexDataDividerLine
+	call PlaceString ; draw horizontal divider line
+
+; First, we print level 1 moves.
+	ld a, [wPokedexNum]
+	push af ; save a = Mon index
+	call IndexToPokedex
+	ld a, [wPokedexNum]
+	dec a
+	ld hl, BaseStats
+	ld bc, BASE_DATA_SIZE
+	call AddNTimes
+	ld bc, BASE_MOVES
+	add hl, bc
+	ld de, wMoveBuffer
+	ld a, BANK(BaseStats)
+	ld bc, NUM_MOVES
+	call FarCopyData ; copy 4 base moves at wMoveBuffer
+
+	decoord  2, 4
+	ld hl, wMoveBuffer
+.level1Moves
+	ld a, [hli]
+	and a ; NO_MOVE?
+	jr z, .levelUpMoves
+	push hl ; save hl = address of next move
+	push de ; save de = screen tile
+	ld [wNamedObjectIndex], a ; move id
+	ld h, d
+	ld l, e
+	ld a, $6f ; ":L"
+	ld [hli], a
+	ld a, "1"
+	ld [hli], a
+	inc hl
+	inc hl
+	call GetMoveName
+	call PlaceString
+	pop hl ; restore hl = screen tile
+	lb bc, 0, SCREEN_WIDTH
+	add hl, bc
+	ld d, h
+	ld e, l
+	pop hl ; restore hl = address of next move
+	jr .level1Moves
+
+.levelUpMoves
+; Second, we print level-up moves.
+	pop af ; restore a = Mon index
+	push de ; save de = screen tile
+	dec a
+	ld hl, EvosMovesPointerTable
+	ld b, 0
+	ld c, a
+	add hl, bc
+	add hl, bc
+	ld de, wMoveBuffer
+	ld a, BANK(EvosMovesPointerTable)
+	ld bc, 2
+	call FarCopyData ; copy [Mon]EvosMoves pointer at wMoveBuffer
+
+	ld hl, wMoveBuffer
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a          ; hl = [Mon]EvosMoves
+	ld de, wMoveBuffer
+	ld a, BANK(EvosMovesPointerTable)
+	ld bc, 32        ; big enough to copy all [Mon]EvosMoves data
+	call FarCopyData ; copy [Mon]EvosMoves data at wMoveBuffer
+
+	pop de ; restore de = screen tile
+	ld hl, wMoveBuffer
+.skipEvoData
+	ld a, [hli]
+	and a
+	jr nz, .skipEvoData
+.loopMoves
+	ld a, [hli]
+	and a ; terminator?
+	jr z, .waitForButtonPress
+
+	ld [wStringBuffer], a     ; level
+	ld a, [hli]
+	ld [wNamedObjectIndex], a ; move id
+	push hl ; save hl = address of next move
+	push de ; save de = screen tile
+
+	; check if obtained badges allow printing move
+	CheckEvent EVENT_BECAME_CHAMPION
+	jr nz, .printMove
+	ld a, [wStringBuffer] ; a = level
+	call .badgeCheck
+	jr nc, .dontPrintMove
+
+.printMove
+	ld h, d
+	ld l, e
+	ld a, $6f ; ":L"
+	ld [hli], a
+	ld de, wStringBuffer
+	lb bc, LEFT_ALIGN | 1, 2
+	call PrintNumber
+	inc hl
+	ld a, [wStringBuffer]
+	cp 10
+	jr nc, .skipSpace
+	inc hl
+.skipSpace
+	call GetMoveName
+	call PlaceString
+
+	pop hl ; restore de = screen tile
+	ld b, 0
+	ld c, SCREEN_WIDTH
+	add hl, bc
+	ld d, h
+	ld e, l
+	pop hl ; restore hl = address of next move
+	jr .loopMoves
+
+.dontPrintMove
+	ld h, d
+	ld l, e
+	inc hl
+	ld a, "-"
+	ld [hli], a
+	ld [hli], a
+	inc hl
+	ld [hli], a
+
+	pop hl ; restore de = screen tile
+	ld b, 0
+	ld c, SCREEN_WIDTH
+	add hl, bc
+	ld d, h
+	ld e, l
+	pop hl ; restore hl = address of next move
+	jr .loopMoves
+
+.waitForButtonPress
+	call JoypadLowSensitivity
+	ldh a, [hJoy5]
+	and PAD_A | PAD_B
+	jr z, .waitForButtonPress
+
+	call ClearScreen
+	ld hl, wStatusFlags2
+	res BIT_NO_AUDIO_FADE_OUT, [hl]
+	ld a, $77
+	ldh [rAUDVOL], a
+	ret
+
+.badgeCheck ; a = level move is learned, returns carry flag if allowed to print
+	cp 6
+	ret c   ; moves below lv5 appear by default
+	ld b, 1 << BIT_BOULDERBADGE
+	ASSERT BIT_BOULDERBADGE == 0
+	cp 11   ; moves between lv6-10 require Boulder Badge
+	jr c, .checkBadge
+	rlc b   ; 1 << BIT_CASCADEBADGE
+	cp 16   ; moves between lv11-15 require Cascade Badge
+	jr c, .checkBadge
+	rlc b   ; 1 << BIT_THUNDERBADGE
+	cp 21   ; etc...
+	jr c, .checkBadge
+	rlc b   ; 1 << BIT_PRISMBADGE
+	cp 26
+	jr c, .checkBadge
+	rlc b   ; 1 << BIT_SOULBADGE
+	cp 31
+	jr c, .checkBadge
+	rlc b   ; 1 << BIT_MARSHBADGE
+	cp 36
+	jr c, .checkBadge
+	rlc b   ; 1 << BIT_VOLCANOBADGE
+	cp 41
+	jr c, .checkBadge
+	rlc b   ; 1 << BIT_EARTHBADGE
+	cp 46   ; moves between lv41-45 require Earth Badge
+	jr c, .checkBadge
+	ret ; carry flag unset so won't print
+
+.checkBadge
+	ld a, [wObtainedBadges]
+	and b ; obtained the required badge?
+	ret z ; carry flag unset so won't print
+	scf
+	ret
+
+PokedexMovesHeader: db "'s MOVES@"

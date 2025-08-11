@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/kadabra.pic", 0, 1 ; sprite dimensions
 	dw KadabraPicFront, KadabraPicBack
 
-	db TELEPORT, CONFUSION, NO_MOVE, NO_MOVE ; level 1 learnset ; marcelnote - removed DISABLE
+	db TELEPORT, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset ; marcelnote - removed CONFUSION, DISABLE
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset

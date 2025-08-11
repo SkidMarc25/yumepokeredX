@@ -11,7 +11,7 @@
 	dw NidoqueenPicFront, NidoqueenPicBack
 
 	;db TACKLE, SCRATCH, TAIL_WHIP, BODY_SLAM ; level 1 learnset
-	db TACKLE, GROWL, NONE, NONE ; level 1 learnset ; marcelnote - changed
+	db TACKLE, GROWL, NO_MOVE, NO_MOVE ; level 1 learnset ; marcelnote - changed
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
