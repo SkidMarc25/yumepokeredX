@@ -18,20 +18,20 @@ SummerBeachHouse_TextPointers:
 SummerBeachHouseSurfinDudeText:
 	text_asm
 	callfar IsSurfingPikachuInParty
-	ld hl, .SummerBeachHouseSurfinDudeDogsBurgersText
+	ld hl, .DogsBurgersText
 	jr z, .print_text
 	CheckEvent EVENT_SURFIN_DUDE_WHOA
-	ld hl, .SummerBeachHouseSurfinDudeWannaGoSurfText
+	ld hl, .WannaGoSurfText
 	jr nz, .alreadySawSurfinPikachu
 	SetEvent EVENT_SURFIN_DUDE_WHOA
-	ld hl, .SummerBeachHouseSurfinDudeWhoaText
+	ld hl, .WhoaText
 .alreadySawSurfinPikachu
 	call PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
 	jr z, .StartSurfingPikachuMinigame
-	ld hl, .SummerBeachHouseSurfinDudeComeAnytimeText
+	ld hl, .ComeAnytimeText
 .print_text
 	call PrintText
 	rst TextScriptEnd ; PureRGB - rst TextScriptEnd
@@ -42,27 +42,27 @@ SummerBeachHouseSurfinDudeText:
 ;	callfar SurfingPikachuMinigame
 ;	ld hl, wd492
 ;	set 1, [hl]
-	ld hl, .SummerBeachHouseSurfinDudeNotReadyYetText
+	ld hl, .NotReadyYetText
 	call PrintText
 	rst TextScriptEnd ; PureRGB - rst TextScriptEnd
 
-.SummerBeachHouseSurfinDudeDogsBurgersText
+.DogsBurgersText
 	text_far _SummerBeachHouseSurfinDudeDogsBurgersText
 	text_end
 
-.SummerBeachHouseSurfinDudeWhoaText
+.WhoaText
 	text_far _SummerBeachHouseSurfinDudeWhoaText
 	text_end
 
-.SummerBeachHouseSurfinDudeWannaGoSurfText
+.WannaGoSurfText
 	text_far _SummerBeachHouseSurfinDudeWannaGoSurfText
 	text_end
 
-.SummerBeachHouseSurfinDudeComeAnytimeText
+.ComeAnytimeText
 	text_far _SummerBeachHouseSurfinDudeComeAnytimeText
 	text_end
 
-.SummerBeachHouseSurfinDudeNotReadyYetText ; marcelnote - temporary until minigame works
+.NotReadyYetText ; marcelnote - temporary until minigame works
 	text_far _SummerBeachHouseSurfinDudeNotReadyYetText
 	text_end
 

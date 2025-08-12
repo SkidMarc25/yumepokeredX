@@ -346,7 +346,7 @@ IsSurfingPikachuInParty::
 	ld b, NUM_MOVES
 .nextMove
 	ld a, [hli]
-	cp SURF ; does pikachu have surf as one of its moves
+	sub SURF
 	jr z, .hasSurf
 	dec b
 	jr nz, .nextMove
@@ -356,7 +356,8 @@ IsSurfingPikachuInParty::
 	add hl, de
 	dec c
 	jr nz, .loop
-	ret
-.hasSurf
-	or 1 ; clear z flag
+	ret  ; z flag set
+.hasSurf ; a = 0 here
+	pop hl
+	inc a ; clear z flag
 	ret
