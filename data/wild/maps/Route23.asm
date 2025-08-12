@@ -23,25 +23,25 @@ Route23WildMons:
 ;	db 43, FEAROW
 ; marcelnote - new encounters
 IF DEF(_RED)
-	db 36, NIDORINO
+	db 36, EKANS
 	db 38, DITTO
-	db 37, PRIMEAPE
-	db 36, NIDORINA
+	db 41, ARBOK
+	db 36, NIDORINO
 	db 37, PERSIAN
 	db 38, FEAROW
-	db 41, ARBOK
+	db 36, NIDORINA
 	db 43, DITTO
 	db 41, FEAROW
 	db 43, FEAROW
 ENDC
 IF (DEF(_BLUE) || DEF(_GREEN)) ; marcelnote: Green has same encounters as Blue for now
-	db 36, NIDORINA
+	db 36, EKANS
 	db 38, DITTO
+	db 41, ARBOK
+	db 36, NIDORINA
 	db 37, PERSIAN
-	db 36, NIDORINO
-	db 37, PRIMEAPE
 	db 38, FEAROW
-	db 41, SANDSLASH
+	db 36, NIDORINO
 	db 43, DITTO
 	db 41, FEAROW
 	db 43, FEAROW
