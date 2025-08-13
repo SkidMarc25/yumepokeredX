@@ -1308,6 +1308,7 @@ RapidashEvosMoves:
 	db 38, TAKE_DOWN
 	db 43, HORN_DRILL ; marcelnote - exclusive to RAPIDASH
 	db 50, AGILITY
+	db 55, JUMP_KICK
 	db 0
 
 SlowpokeEvosMoves:
